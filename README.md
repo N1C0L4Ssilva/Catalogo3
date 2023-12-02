@@ -1,9 +1,11 @@
 # FEAngularProjeto
 ORDEM EXECUÇÃO SABE.
-ng build.
-git init.
-o coment é pelo VSC.
 
+ng build.
+
+git init.
+
+o coment é pelo VSC.
 
 
 
