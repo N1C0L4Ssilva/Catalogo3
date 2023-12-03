@@ -9,6 +9,8 @@ import { CONTABILIDADEFUNCIONARIOComponent } from './contabilidade-funcionario/c
 import { GERENCIAMENTOFUNCIONARIOSComponent } from './gerenciamento-funcionarios/gerenciamento-funcionarios.component';
 import { METRICASGERENTEComponent } from './metricas-gerente/metricas-gerente.component';
 import { GERENCIAMENTOVALORESComponent } from './gerenciamento-valores/gerenciamento-valores.component';
+import { CATALOGOSEARCHComponent } from './catalogo-search/catalogo-search.component';
+
 export const routes: Routes = [
     {path:"Login_Register", component:LOGINREGISTERCLIENTComponent},
     {path:"", component:CATALOGOMARCADORESCLIENTEComponent},
@@ -19,4 +21,5 @@ export const routes: Routes = [
     {path:"Funcionario", component:GERENCIAMENTOFUNCIONARIOSComponent},
     {path:"Metricas", component:METRICASGERENTEComponent},
     {path:"Valores", component:GERENCIAMENTOVALORESComponent},
+    {path:"Search",component:CATALOGOSEARCHComponent}
 ];
