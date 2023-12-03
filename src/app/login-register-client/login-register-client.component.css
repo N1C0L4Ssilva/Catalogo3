@@ -1,0 +1,166 @@
+*{margin: 0;padding: 0;}
+body{
+    overflow: hidden !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+body section{
+    /* margin-left: 25%; */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+body section form{
+    width: 250px;
+    height: 300px;
+    background-color: #4632C0;
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+body section form h3{
+    margin-top: 7.5%;
+    font-family: Inter;
+    color: white;
+}
+
+body section form > div{
+    width: 90%;
+    height: 12.5%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body section form div span{
+    position: absolute;
+    font-weight: bold;
+    color: #777777;
+    font-family: Inter;
+    background-color: #4632C0;
+    padding: 0 5px 0 5px;
+    transition: .25s;
+    top: 8px;
+    left: 79px;
+}
+
+body section .MovePage{
+    position: absolute;
+    color: white;
+    bottom: 15px;
+    border: 0;
+    background-color: #4632C0;
+    font-size: 12px;
+}
+body section .MovePage span{
+    color: #00FF00;
+    font-family: 'Inter';
+    font-weight: bold;
+    background-color: #4632C0;
+}
+input{
+    outline: none;
+    padding:0 10px 0 10px;
+    width: 100%;height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid white;
+    z-index: 1;
+}
+input:focus~ span , input:valid ~ span{
+    top: -10px;
+    left: 10px;
+    z-index: 2;
+}
+body section form button[Type="submit"]{
+    border:0;
+    width:90%;
+    height: 12.5%;
+    background-color: #309816;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    font-family: Inter;
+}
+
+.LOGIN form > div{margin-top:14%;}
+.REGISTER form > div{margin-top:7.5%;}
+body section button[Type="submit"]{position: absolute; bottom: 12.5%;}
+
+
+.cofSenha span{left: 56px;}
+
+.Frente{
+    transition: 0.2s;
+    transform: rotate3d(0, 1, 0, 0deg);
+    z-index: 1;
+}
+
+.Traz{
+    transition: 0.2s;
+    transform: rotate3d(0, 1, 0, 180deg);
+    z-index: -1;
+}
+
+/* SHOW PASSWORD*/
+.IconEye{
+    position: absolute;
+    right: 0px;
+    top: 7px;
+}
+.IconEye input[type="checkbox"]{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 7px;
+    opacity: 0;
+    z-index: 2;
+}
+.IconEye div{
+    content: url("../../assets/Eye_Closed.png");
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 7px;
+}
+.IconEye input[type="checkbox"]:checked + div{
+    content: url("../../assets/Eye_Opened.png");
+}
+.SenhaInput{
+    -webkit-text-security:disc !important
+}
+.IconEye:has(input[type="checkbox"]:checked) + .SenhaInput{
+    -webkit-text-security:none !important;
+}
+
+
+/* .Barra_Atravesada{
+    width:37.5%;
+    height:100%;
+    left:0;
+    position:absolute;
+    background-color: #4632CC;
+    &::before{
+        content: "";
+        position: absolute;
+        background-color: #4632CC;
+        transform: rotate(5deg);
+        right: -40px;
+        top: -5px;
+        width:80px;
+        height:110%;
+    };
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Barra_Atravesada div{
+    color: white;
+} */

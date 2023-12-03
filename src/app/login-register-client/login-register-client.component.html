@@ -1,1 +1,64 @@
-<p>login-register-client works!</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>LOGIN / REGISTER</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div class="Barra_Atravesada">
+        <div>
+            TEXTO QUE QUISER AQUI
+            <br>
+            OU IMAGEM QUE QUISER AQUI
+        </div>
+    </div>
+    <section id="LoginSection" class="LOGIN Frente">
+        <form>
+            <h3>LOGIN</h3>
+            <div class="Email">
+                <input type="text"required>
+                <span>EMAIL</span>
+            </div>
+            <div class="Senha">
+                <div class="IconEye">
+                    <input type="checkbox">
+                    <div></div>
+                </div>
+                <input class="SenhaInput" type="text"required>
+                <span>SENHA</span>
+            </div>
+            <button type="submit">LOGIN</button>
+        </form>
+        <button class="MovePage" onclick="Rotate()">Clique aqui para se <span>REGISTRAR</span></button>
+    </section>
+    <section id="RegisterSection" class="REGISTER Traz">
+        <form>
+            <h3>REGISTRAR</h3>
+            <div class="Email">
+                <input type="text" required>
+                <span>EMAIL</span>
+            </div>
+            <div class="Senha">
+                <div class="IconEye">
+                    <input type="checkbox">
+                    <div></div>
+                </div>
+                <input class="SenhaInput" type="text"required>
+                <span>SENHA</span>
+            </div>
+            <div class="cofSenha">
+                <div class="IconEye">
+                    <input type="checkbox">
+                    <div></div>
+                </div>
+                <input class="SenhaInput" type="text"required>
+                <span>CONFIRMAR</span>
+            </div>
+            <button type="submit">REGISTRAR</button>
+        </form>
+        <button class="MovePage" onclick="Rotate()">Já possui conta? Clique aqui para <span>ENTRAR</span></button>
+    </section>
+</body>
+</html>

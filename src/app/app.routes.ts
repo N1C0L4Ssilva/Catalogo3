@@ -12,14 +12,21 @@ import { GERENCIAMENTOVALORESComponent } from './gerenciamento-valores/gerenciam
 import { CATALOGOSEARCHComponent } from './catalogo-search/catalogo-search.component';
 
 export const routes: Routes = [
-    {path:"Login_Register", component:LOGINREGISTERCLIENTComponent},
+    // FUNCIONANDO E TESTADO
     {path:"", component:CATALOGOMARCADORESCLIENTEComponent},
     {path:"Catalogo", component:CATALOGOCLIENTComponent},
-    {path:"Armasem", component:CATALOGOFUNCIONARIOComponent},
+    {path:"Search",component:CATALOGOSEARCHComponent},
+
+    // FALTA TESTAR
+    {path:"Login_Register", component:LOGINREGISTERCLIENTComponent},
+
+
+    // NÃO FUNCIONANDO
+
+    {path:"Armazem", component:CATALOGOFUNCIONARIOComponent},
     {path:"Contabil", component:CONTABILIDADEFUNCIONARIOComponent},
     {path:"Carrinho", component:CARRINHOCOMPRASCLIENTEComponent},
     {path:"Funcionario", component:GERENCIAMENTOFUNCIONARIOSComponent},
     {path:"Metricas", component:METRICASGERENTEComponent},
     {path:"Valores", component:GERENCIAMENTOVALORESComponent},
-    {path:"Search",component:CATALOGOSEARCHComponent}
 ];
