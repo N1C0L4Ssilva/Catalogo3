@@ -1,5 +1,5 @@
 @font-face {
     font-family: "Inter";
-    src: url("Inter-VariableFont_slnt\,wght.ttf") sectionat("truetype");
+    src: url("assets/Inter-VariableFont_slnt\,wght.ttf") sectionat("truetype");
 }
 *{margin: 0;padding: 0;}
