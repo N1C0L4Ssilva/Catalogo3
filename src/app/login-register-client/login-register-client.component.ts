@@ -28,22 +28,3 @@ export class LOGINREGISTERCLIENTComponent {
     }
   }
 }
-
-
-
-/*
-  var Front=true
-  function Rotate(){
-      var LogSec=document.getElementById("LoginSection")
-      var RegSec=document.getElementById("RegisterSection")
-      if(Front){
-          LogSec.setAttribute("class","LOGIN Traz")
-          RegSec.setAttribute("class","REGISTER Frente")
-          Front=false
-      }else{
-          LogSec.setAttribute("class","LOGIN Frente")
-          RegSec.setAttribute("class","REGISTER Traz")
-          Front=true
-      }
-  }
-*/ 

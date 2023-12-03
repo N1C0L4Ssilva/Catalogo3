@@ -8,7 +8,6 @@ body{
     height: 100vh;
 }
 body section{
-    /* margin-left: 25%; */
     position: absolute;
     display: flex;
     justify-content: center;
@@ -73,11 +72,18 @@ input{
     border: 2px solid white;
     z-index: 1;
 }
-input:focus~ span , input:valid ~ span{
+
+form div input:focus + .Texto{
     top: -10px;
     left: 10px;
     z-index: 2;
 }
+form div input:valid + .Texto{
+    top: -10px;
+    left: 10px;
+    z-index: 2;
+}
+
 body section form button[Type="submit"]{
     border:0;
     width:90%;
@@ -138,29 +144,3 @@ body section button[Type="submit"]{position: absolute; bottom: 12.5%;}
 .IconEye:has(input[type="checkbox"]:checked) + .SenhaInput{
     -webkit-text-security:none !important;
 }
-
-
-/* .Barra_Atravesada{
-    width:37.5%;
-    height:100%;
-    left:0;
-    position:absolute;
-    background-color: #4632CC;
-    &::before{
-        content: "";
-        position: absolute;
-        background-color: #4632CC;
-        transform: rotate(5deg);
-        right: -40px;
-        top: -5px;
-        width:80px;
-        height:110%;
-    };
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Barra_Atravesada div{
-    color: white;
-} */
