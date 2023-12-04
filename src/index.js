@@ -24,6 +24,52 @@ Docs.then((Value)=>{
 const Express=require('express')
 const Server=Express()
 
+/* 
+CARRINHO
+    GET :ID_USUARIO;                    -- OBTER
+    POST :ID_PRODUTO,ID_USUARIO         -- ADICIONAR
+    DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
+*/
+
+/* 
+ENDERECOS
+    GET :ID_USUARIO;                    -- OBTER
+    POST [JSON], :ID_USUARIO;           -- ADICIONAR
+*/
+
+/* 
+FUNCIONARIOS
+    GET                                 -- OBTER
+    POST :ID_PRODUTO,ID_USUARIO         -- ADICIONAR
+    DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
+    PUT [JSON] :ID                      -- ATUALIZAR
+*/
+
+/* 
+MOVIMENTACAO
+    GET :ID_USER                        -- OBTER
+    POST [JSON]                         -- ADICIONAR
+*/
+
+/* 
+PRODUTOS
+    GET                                 -- OBTER
+    GET :ID                             -- OBTER ESPECIFICO
+    POST [JSON] :ID_PRODUTO             -- ADICIONAR
+    DELETE :ID_PRODUTO                  -- REMOVER
+    PUT [JSON] :ID                      -- ATUALIZAR
+*/
+
+/* 
+USUARIO
+    GET                                 -- OBTER
+    GET :ID                             -- OBTER ESPECIFICO
+    POST [JSON]                         -- ADICIONAR
+    DELETE :ID                          -- REMOVER
+    PUT [JSON] :ID                      -- ATUALIZAR
+*/
+
+
 Server.get("/",(req,res)=>{
   return res.json({mensage:"é nois"})
 })

@@ -1,0 +1,6 @@
+/* 
+CARRINHO
+    GET :ID_USUARIO;                    -- OBTER
+    POST :ID_PRODUTO,ID_USUARIO         -- ADICIONAR
+    DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
+*/
