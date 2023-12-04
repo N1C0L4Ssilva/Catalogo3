@@ -9,4 +9,9 @@ export class Usuarios {
         this.ACESSO=Acesso;
         this.SENHA=Senha;
     }
+    // GETTERs
+    public GetID(){return this.ID;}
+    public GetNOME(){return this.NOME;}
+    public GetACESSO(){return this.ACESSO;}
+    public GetSENHA(){return this.SENHA;}
 }

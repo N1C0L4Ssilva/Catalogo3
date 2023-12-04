@@ -11,4 +11,10 @@ export class Carrinho {
         this.QUANTIDADE=Qnt
         this.TOTAL=Tot
     }
+     // GETTERs
+     public GetID(){return this.ID;}
+     public GetID_USER(){return this.ID_USER;}
+     public GetID_PRODUTO(){return this.ID_PRODUTO;}
+     public GetQUANTIDADE(){return this.QUANTIDADE;}
+     public GetTOTAL(){return this.TOTAL;}
 }

@@ -11,4 +11,10 @@ export class Fucionarios {
         this.SENHA=Snh
         this.TIPO=Tip
     }
+    // GETTERs
+    public GetID(){return this.ID;}
+    public GetNOME(){return this.NOME;}
+    public GetACESSO(){return this.ACESSO;}
+    public GetSENHA(){return this.SENHA;}
+    public GetTIPO(){return this.TIPO;}
 }

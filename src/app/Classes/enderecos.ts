@@ -13,4 +13,11 @@ export class Enderecos {
        this.COMPLEMENTO=Comp
        this.VALOR=Vlr 
     }
+    // GETTERs
+    public GetID(){return this.ID;}
+    public GetID_USER(){return this.ID_USER;}
+    public GetENDERECO(){return this.ENDERECO;}
+    public GetNUMERO(){return this.NUMERO;}
+    public GetCOMPLEMENTO(){return this.COMPLEMENTO;}
+    public GetVALOR(){return this.VALOR;}
 }

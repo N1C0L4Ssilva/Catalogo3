@@ -21,4 +21,15 @@ export class Produtos {
             this.TAGS=Tgs;
             this.IMG=img;
     }
+
+    public GetID(){return this.ID;}
+    public GetNOME(){return this.NOME;}
+    public GetVALOR(){return this.VALOR;}
+    public GetMARKADOR(){return this.MARKADOR;}
+    public GetMARCA(){return this.MARCA;}
+    public GetESPECIFC(){return this.ESPECIFC;}
+    public GetQUANTIDADE(){return this.QUANTIDADE;}
+    public GetTAGS(){return this.TAGS;}
+    public GetIMG(){return this.IMG;}
+
 }
