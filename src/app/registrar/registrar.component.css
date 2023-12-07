@@ -1,0 +1,226 @@
+*{margin: 0;padding: 0; font-family: Inter;}
+:root{
+    --NavBar:rgb(97, 108, 97);
+    --BotaoNavBar:rgb(125,125,125);
+    --Card:rgb(200,180,180);
+    --BorderCard:rgb(180,160,160);
+    --MenuCelular:rgb(0,0,0,.9);
+    --aOpenMenu:rgb(0,0,0);
+    --CorDeFundo:#ffffff;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--CorDeFundo);
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+/* SWITH */
+.Swith{
+    width: 250px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #D9D9D9;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    margin-top: 20px;
+}
+.Swith > span{
+    position:inherit;
+    width: 100%;
+    height: 100%;
+    color:black;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Swith .MoveBar{
+    margin: 2px 0 0 2px;
+    position: absolute;
+    width: 50%;
+    height: calc(100% - 4px);
+    background-color: #fff;
+    border-radius: 25px;
+    z-index: 1;
+    left: 0;
+    transition: .2s;
+}
+.Swith input[type="checkbox"]{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+}
+.Swith:has(input[type="checkbox"]:checked) > .MoveBar{
+    left: calc(100% - 125px);
+}
+
+/* CARD */
+
+.Card{
+    width: 500px;
+    height: 120px;
+    margin: 10px;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: row;
+}
+.Card img{
+    margin: 5px;
+    width: 110px;
+    height: 110px;
+    background-color: #8F8F8F;
+}
+.Card > div{width: calc(100% - 125px);}
+.Card > div > *{
+    width: 100%;
+    margin: 9px 0px;
+    background-color: #8F8F8F;
+    color: white;
+} 
+.Card > div > .UnicBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Card > div > .Vlr{
+    display: flex;
+    position: relative;
+    background-color: #F3F3F3;}
+.Card > div > .Vlr div{
+    width: calc(80% - 5px);
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    background-color: #8F8F8F;
+    color: white;
+
+}
+.Card > div > .Vlr button{
+    position: absolute;
+    right: 2px;
+    border: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #24Ff13;
+    color: black;
+    
+    border-radius: 10px;
+}
+
+section{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    transition: .5s;
+}
+section > *{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+
+.RegistProduto{left:inherit;width: 350px;}
+.RegistFuncionario{left:-150%;width: 350px;}
+.Swith:has(input[type="checkbox"]:checked) ~section .RegistProduto{left:150%;}
+.Swith:has(input[type="checkbox"]:checked) ~ section .RegistFuncionario{left:inherit;}
+
+/* INPUT RADIOS */
+.InpRadios{
+    width: 250px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius:20px;
+    background-color: #D9D9D9;
+    margin-bottom: 20px;
+}
+.InpRadios div{
+    position: relative;height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.InpRadios div input{position: absolute; z-index: 1;opacity: 0;}
+.InpRadios div span{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::after{
+        content: "";
+        position: inherit;
+        width: 12px;
+        height: 12px;
+        background-color: #04ff00;
+        border-radius: 50%;
+
+    }
+}
+.InpRadios div input:checked ~ span{background-color:#8EC2FF}
+
+
+/* NOT CHECKED */
+.InpRadios:not(div .RadioVisi:checked) ~ .Visivel,
+.InpRadios:not(div .RadioSist:checked) ~ .Sistema,
+.InpRadios:not(div .RadioOrgn:checked) ~ .Organizacao{display: none;}
+/* CHECKED */
+.InpRadios:has(div .RadioVisi:checked) ~ .Visivel{display: flex !important;}
+.InpRadios:has(div .RadioSist:checked) ~ .Sistema{display: flex !important;}
+.InpRadios:has(div .RadioOrgn:checked) ~ .Organizacao{display: flex !important;}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ form .Visivel,
+ form .Sistema,
+ form .Organizacao{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 310px;
+    background-color: #D9D9D9;
+    padding: 20px;
+}
+
+form .Visivel input,
+form .Sistema input,
+form .Organizacao input{
+    height: 35px;
+    width:100%;
+    border: 0;
+    outline: none;
+    padding: 0 5px 0 5px;
+}
+
+form:has(.Visivel input:invalid) > .InpRadios div .SpanVisi::after{background-color: #A1A1A1;}
+form:has(.Sistema input:invalid) > .InpRadios div .SpanSist::after{background-color: #A1A1A1;}
+form:has(.Organizacao input:invalid) > .InpRadios div .SpanOrgn::after{background-color: #A1A1A1;}
+
+label{align-self: flex-start;margin-top: 5px;}
+button[type="submit"]{
+    margin-top: 20px;
+    width: 50%;
+    height: 35px;
+    background-color: #24Ff13;
+    color: black;
+    border-radius: 20px;
+    font-weight:bold;
+}

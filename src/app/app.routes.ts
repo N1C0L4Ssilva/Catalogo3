@@ -10,6 +10,7 @@ import { GERENCIAMENTOFUNCIONARIOSComponent } from './gerenciamento-funcionarios
 import { METRICASGERENTEComponent } from './metricas-gerente/metricas-gerente.component';
 import { GERENCIAMENTOVALORESComponent } from './gerenciamento-valores/gerenciamento-valores.component';
 import { CATALOGOSEARCHComponent } from './catalogo-search/catalogo-search.component';
+import { REGISTRARComponent } from './registrar/registrar.component';
 
 export const routes: Routes = [
     // FUNCIONANDO E TESTADO
@@ -19,12 +20,13 @@ export const routes: Routes = [
 
     // FALTA TESTAR
     {path:"Login_Register", component:LOGINREGISTERCLIENTComponent},
+    {path:"RegistrarItem", component:REGISTRARComponent},
 
 
     // NÃO FUNCIONANDO
 
-    {path:"Armazem", component:CATALOGOFUNCIONARIOComponent},
     {path:"Contabil", component:CONTABILIDADEFUNCIONARIOComponent},
+    {path:"Armazem", component:CATALOGOFUNCIONARIOComponent},
     {path:"Carrinho", component:CARRINHOCOMPRASCLIENTEComponent},
     {path:"Funcionario", component:GERENCIAMENTOFUNCIONARIOSComponent},
     {path:"Metricas", component:METRICASGERENTEComponent},
