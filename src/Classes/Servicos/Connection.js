@@ -16,3 +16,7 @@ exports.ObterColecao=(Colecao)=>{
     const Docs=getDocs(collection(db,Colecao))
     Docs.then((Value)=>{return Value})
 }
+exports.AdicionarNaCoelcao=(Colecao)=>{
+    // const Docs=getDocs(collection(db,Colecao))
+    // Docs.then((Value)=>{return Value})
+}

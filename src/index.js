@@ -1,10 +1,10 @@
 // IMPORTS
-const Carrinho=require("./Classes/CarrinhoDAO")
-const Endereco=require("./Classes/EnderecosDAO")
-const Funcionario=require("./Classes/FuncionarioDAO")
-const Movimentacao=require("./Classes/MovimentacoesDAO")
-const Produto=require("./Classes/ProdutoDAO")
-const Usuario=require("./Classes/UsuarioDAO")
+const Carrinho=require("./Classes/Servicos/CarrinhoDAO")
+const Endereco=require("./Classes/Servicos/EnderecosDAO")
+const Funcionario=require("./Classes/Servicos/FuncionarioDAO")
+const Movimentacao=require("./Classes/Servicos/MovimentacoesDAO")
+const Produto=require("./Classes/Servicos/ProdutoDAO")
+const Usuario=require("./Classes/Servicos/UsuarioDAO")
 
 // API
 const Express=require('express')
@@ -47,7 +47,7 @@ MOVIMENTACAO
 GET :ID_USER                        -- OBTER
 POST [res.Body]                         -- ADICIONAR
 */
-Server.get("/Movimentacao/:ID_USER",Movimentacao.GET)
+Server.get("/Movimentacao/:ID_USUARIO",Movimentacao.GET)
 Server.post("/Movimentacao",Movimentacao.POST)
 
 /* 

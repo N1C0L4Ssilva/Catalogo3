@@ -1,3 +1,5 @@
+const ListaItens=require("./ListaItens")
+const Modelo=require("../Modelos")
 /* 
 FUNCIONARIOS
     GET                                 -- OBTER
@@ -17,20 +19,25 @@ FUNCIONARIOS
         TIPO:
     ]:ID                               -- ATUALIZAR
 */
-
 exports.GET = (req, res) => {
-    if (req.query.id) {
-        // TEM ID
+    const ID_FUNCIONARIO=req.query.ID_FUNCIONARIO
+    if (ID_FUNCIONARIO) {
+        res.send(ListaItens.FUNCIONARIO.filter((Item)=>Item.ID==ID_FUNCIONARIO))
     }else{
-        // TODOS
+        res.send(ListaItens.FUNCIONARIO)
     }
 }
 exports.POST = (req, res) => {
+    const ID_FUNCIONARIO=req.query.ID_FUNCIONARIO
+    const BODY=req.body
     
 }
 exports.DELETE = (req, res) => {
-
+    const ID_FUNCIONARIO=req.query.ID_FUNCIONARIO
+    
 }
+
 exports.PUT = (req, res) => {
+    const BODY=req.body
 
 }

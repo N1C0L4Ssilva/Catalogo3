@@ -1,3 +1,5 @@
+const ListaItens=require("./ListaItens")
+const Modelo=require("../Modelos")
 /* 
 PRODUTOS
     GET                                 -- OBTER
@@ -7,23 +9,29 @@ PRODUTOS
     PUT [JSON] :ID                      -- ATUALIZAR
 */
 exports.GET = (req, res) => {
-    if (req.query.id) {
-        // TEM ID
+    const ID_PRODUTO=req.query.ID_PRODUTO
+    if (ID_PRODUTO) {
+        res.send(ListaItens.PRODUTO.filter((Item)=>Item.ID==ID_PRODUTO))
     }else{
-        // TODOS
+        res.send(ListaItens.PRODUTO)
     }
 }
 exports.POST = (req, res) => {
+    const ID_PRODUTO=req.query.ID_PRODUTO
+    const BODY=req.body
     if (req.query.id) {
         
     }
 }
 exports.DELETE = (req, res) => {
+    const ID_PRODUTO=req.query.ID_PRODUTO
     if (req.query.id) {
         
     }
 }
 exports.PUT = (req, res) => {
+    const ID_PRODUTO=req.query.ID_PRODUTO
+    const BODY=req.body
     if (req.query.id) {
         
     }

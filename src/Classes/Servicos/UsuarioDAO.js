@@ -1,3 +1,5 @@
+const ListaItens=require("./ListaItens")
+const Modelo=require("../Modelos")
 /* 
 USUARIO
     GET                                 -- OBTER
@@ -7,23 +9,28 @@ USUARIO
     PUT [JSON] :ID                      -- ATUALIZAR
 */
 exports.GET = (req, res) => {
-    if (req.query.id) {
-        // TEM ID
+    const ID_USUARIO=req.query.ID_USUARIO
+    if (ID_USUARIO) {
+        res.send(ListaItens.USIARIO.filter((Item)=>Item.ID==ID_USUARIO))
     }else{
-        // TODOS
+        res.send(ListaItens.USIARIO)
     }
 }
 exports.POST = (req, res) => {
+    const BODY=req.body
     if (req.query.id) {
         
     }
 }
 exports.DELETE = (req, res) => {
+    const ID_USUARIO=req.query.ID_USUARIO
     if (req.query.id) {
         
     }
 }
 exports.PUT = (req, res) => {
+    const ID_USUARIO=req.query.ID_USUARIO
+    const BODY=req.body
     if (req.query.id) {
         
     }
