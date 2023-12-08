@@ -1,28 +1,15 @@
-// DB CONNECTION
-const {initializeApp}=require('firebase/app')
-const {getFirestore, collection, getDoc, getDocs, doc}=require('firebase/firestore')
-
-const FireApp=initializeApp({
-  apiKey: "AIzaSyDDWfRoi1WMnFxfiO2Inu1usm7xZfyD-A0",
-  authDomain: "catalogo-5a57b.firebaseapp.com",
-  projectId: "catalogo-5a57b",
-  storageBucket: "catalogo-5a57b.appspot.com",
-  messagingSenderId: "537589475837",
-  appId: "1:537589475837:web:1f34b8de238429279a9194",
-  measurementId: "G-L22BT0Q7KM"
-});
-const db=getFirestore(FireApp)
-const Docs=getDocs(collection(db,"PRODUTOS"))
-Docs.then((Value)=>{
-  Value.forEach((v)=>{
-    console.log(v.data())
-  })
-})
-
+// IMPORTS
+const Carrinho=require("./Classes/CarrinhoDAO")
+const Endereco=require("./Classes/EnderecosDAO")
+const Funcionario=require("./Classes/FuncionarioDAO")
+const Movimentacao=require("./Classes/MovimentacoesDAO")
+const Produto=require("./Classes/ProdutoDAO")
+const Usuario=require("./Classes/UsuarioDAO")
 
 // API
 const Express=require('express')
 const Server=Express()
+
 
 /* 
 CARRINHO
@@ -30,46 +17,66 @@ CARRINHO
     POST :ID_PRODUTO,ID_USUARIO         -- ADICIONAR
     DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
 */
+Server.get("/Carrinho/:ID_USUARIO",Carrinho.GET)
+Server.post("/Carrinho/:ID_USUARIO&:ID_PRODUTO",Carrinho.POST)
+Server.delete("/Carrinho/:ID_USUARIO&:ID_PRODUTO",Carrinho.DELETE)
 
 /* 
 ENDERECOS
-    GET :ID_USUARIO;                    -- OBTER
-    POST [JSON], :ID_USUARIO;           -- ADICIONAR
+GET :ID_USUARIO;                    -- OBTER
+POST [res.Body], :ID_USUARIO;           -- ADICIONAR
 */
+Server.get("/Endereco/:ID_USUARIO",Endereco.GET)
+Server.post("/Endereco/:ID_USUARIO",Endereco.POST)
+
 
 /* 
 FUNCIONARIOS
     GET                                 -- OBTER
-    POST :ID_PRODUTO,ID_USUARIO         -- ADICIONAR
-    DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
-    PUT [JSON] :ID                      -- ATUALIZAR
+    POST :ID_PRODUTO,ID_FUNCIONARIO        -- ADICIONAR
+    DELETE :ID_PRODUTO,ID_FUNCIONARIO       -- REMOVER
+    PUT [res.Body] :ID_FUNCIONARIO                      -- ATUALIZAR
 */
+Server.get("/Funcionario/:ID_FUNCIONARIO",Funcionario.GET)
+Server.post("/Funcionario/:ID_FUNCIONARIO&:ID_PRODUTO",Funcionario.POST)
+Server.delete("/Funcionario/:ID_FUNCIONARIO&:ID_PRODUTO",Funcionario.DELETE)
+Server.put("/Funcionario/:ID_FUNCIONARIO",Funcionario.PUT)
 
 /* 
 MOVIMENTACAO
-    GET :ID_USER                        -- OBTER
-    POST [JSON]                         -- ADICIONAR
+GET :ID_USER                        -- OBTER
+POST [res.Body]                         -- ADICIONAR
 */
+Server.get("/Movimentacao/:ID_USER",Movimentacao.GET)
+Server.post("/Movimentacao",Movimentacao.POST)
 
 /* 
 PRODUTOS
     GET                                 -- OBTER
     GET :ID                             -- OBTER ESPECIFICO
-    POST [JSON] :ID_PRODUTO             -- ADICIONAR
+    POST [res.Body] :ID_PRODUTO             -- ADICIONAR
     DELETE :ID_PRODUTO                  -- REMOVER
-    PUT [JSON] :ID                      -- ATUALIZAR
+    PUT [res.Body] :ID                      -- ATUALIZAR
 */
+Server.get("/Produto/:ID_PRODUTO",Produto.GET)
+Server.post("/Produto/:ID_PRODUTO",Produto.POST)
+Server.delete("/Produto/:ID_PRODUTO",Produto.DELETE)
+Server.put("/Produto/:ID_PRODUTO",Produto.PUT)
 
 /* 
 USUARIO
     GET                                 -- OBTER
     GET :ID                             -- OBTER ESPECIFICO
-    POST [JSON]                         -- ADICIONAR
+    POST [res.Body]                         -- ADICIONAR
     DELETE :ID                          -- REMOVER
-    PUT [JSON] :ID                      -- ATUALIZAR
+    PUT [res.Body] :ID                      -- ATUALIZAR
 */
+Server.get("/Usuario/:ID_USUARIO",Usuario.GET)
+Server.post("/Usuario/:ID_USUARIO",Usuario.POST)
+Server.delete("/Usuario/:ID_USUARIO",Usuario.DELETE)
+Server.put("/Usuario/:ID_USUARIO",Usuario.PUT)
 
-
+// Server.post("PATH",FUNCTION)
 Server.get("/",(req,res)=>{
   return res.json({mensage:"é nois"})
 })

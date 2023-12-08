@@ -17,3 +17,20 @@ FUNCIONARIOS
         TIPO:
     ]:ID                               -- ATUALIZAR
 */
+
+exports.GET = (req, res) => {
+    if (req.query.id) {
+        // TEM ID
+    }else{
+        // TODOS
+    }
+}
+exports.POST = (req, res) => {
+    
+}
+exports.DELETE = (req, res) => {
+
+}
+exports.PUT = (req, res) => {
+
+}

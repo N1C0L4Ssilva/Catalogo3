@@ -8,3 +8,15 @@ MOVIMENTACAO
         ...
     ]                         -- ADICIONAR
 */
+exports.GET = (req, res) => {
+    if (req.query.id) {
+        // TEM ID
+    }else{
+        // TODOS
+    }
+}
+exports.POST = (req, res) => {
+    if (req.query.id) {
+        
+    }
+}
