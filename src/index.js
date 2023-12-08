@@ -23,6 +23,7 @@ Server.delete("/Carrinho/:ID_USUARIO&:ID_PRODUTO",Carrinho.DELETE)
     GET :ID_USUARIO;                        -- OBTER
     POST [res.Body], :ID_USUARIO;           -- ADICIONAR
 */
+Server.get("/Endereco",Endereco.GET)
 Server.get("/Endereco/:ID_USUARIO",Endereco.GET)
 Server.post("/Endereco/:ID_USUARIO",Endereco.POST)
 
@@ -32,6 +33,7 @@ Server.post("/Endereco/:ID_USUARIO",Endereco.POST)
     DELETE :ID_PRODUTO,ID_FUNCIONARIO       -- REMOVER
     PUT [res.Body] :ID_FUNCIONARIO                      -- ATUALIZAR
 */
+Server.get("/Funcionario",Funcionario.GET)
 Server.get("/Funcionario/:ID_FUNCIONARIO",Funcionario.GET)
 Server.post("/Funcionario/:ID_FUNCIONARIO&:ID_PRODUTO",Funcionario.POST)
 Server.delete("/Funcionario/:ID_FUNCIONARIO&:ID_PRODUTO",Funcionario.DELETE)
@@ -51,8 +53,9 @@ Server.post("/Movimentacao",Movimentacao.POST)
     DELETE :ID_PRODUTO                  -- REMOVER
     PUT [res.Body] :ID                      -- ATUALIZAR
 */
+Server.get("/Produto",Produto.GET)
 Server.get("/Produto/:ID_PRODUTO",Produto.GET)
-Server.post("/Produto/:ID_PRODUTO",Produto.POST)
+Server.post("/Produto",Produto.POST)
 Server.delete("/Produto/:ID_PRODUTO",Produto.DELETE)
 Server.put("/Produto/:ID_PRODUTO",Produto.PUT)
 
@@ -63,6 +66,7 @@ Server.put("/Produto/:ID_PRODUTO",Produto.PUT)
     DELETE :ID                          -- REMOVER
     PUT [res.Body] :ID                      -- ATUALIZAR
 */
+Server.get("/Usuario",Usuario.GET)
 Server.get("/Usuario/:ID_USUARIO",Usuario.GET)
 Server.post("/Usuario/:ID_USUARIO",Usuario.POST)
 Server.delete("/Usuario/:ID_USUARIO",Usuario.DELETE)

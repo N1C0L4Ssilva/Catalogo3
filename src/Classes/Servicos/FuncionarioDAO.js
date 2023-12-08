@@ -29,9 +29,8 @@ exports.GET = (req, res) => {
     }
 }
 exports.POST = (req, res) => {
-    const ID_FUNCIONARIO=req.query.ID_FUNCIONARIO
     const BODY=req.body
-    if (ID_USUARIO && BODY) {
+    if (BODY) {
         Connection.Adicionar("Funcionario",{
             NOME:BODY.NOME,
             ACESSO:BODY.ACESSO,

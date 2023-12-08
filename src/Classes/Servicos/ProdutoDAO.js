@@ -18,9 +18,8 @@ exports.GET = (req, res) => {
     }
 }
 exports.POST = (req, res) => {
-    const ID_PRODUTO=req.query.ID_PRODUTO
     const BODY=req.body
-    if (ID_PRODUTO && BODY) {
+    if (BODY) {
         Connection.Adicionar("Produto",{
             ID:BODY.ID,
             NOME:BODY.NOME,

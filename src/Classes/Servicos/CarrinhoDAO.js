@@ -11,6 +11,8 @@ exports.GET = (req, res) => {
     const ID_USUARIO=req.query.ID_USUARIO
     if (ID_USUARIO) {
         res.send(ListaItens.CARRINHO.filter((Item) => Item.ID_USER==ID_USUARIO))
+    }else{
+        res.send("Error")
     }
 }
 exports.POST = (req, res) => {

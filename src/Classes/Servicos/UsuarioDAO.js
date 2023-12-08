@@ -19,7 +19,7 @@ exports.GET = (req, res) => {
 }
 exports.POST = (req, res) => {
     const BODY=req.body
-    if (ID_USUARIO && BODY) {
+    if (BODY) {
         Connection.Adicionar("Usuario",{
             NOME:BODY.NOME,
             ACESSO:BODY.ACESSO,
