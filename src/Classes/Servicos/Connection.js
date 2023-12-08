@@ -1,5 +1,7 @@
+console.log("START CONECTION")
+const ListaItens=require("./ListaItens")
 const {initializeApp}=require('firebase/app')
-const {getFirestore, collection, getDocs}=require('firebase/firestore')
+const {getDatabase, child, onValue, ref, get, set, update, remove }=require("firebase/database")
 
 const FireApp=initializeApp({
   apiKey: "AIzaSyDDWfRoi1WMnFxfiO2Inu1usm7xZfyD-A0",
@@ -10,13 +12,47 @@ const FireApp=initializeApp({
   appId: "1:537589475837:web:1f34b8de238429279a9194",
   measurementId: "G-L22BT0Q7KM"
 });
-const db=getFirestore(FireApp)
+const db=getDatabase()
 
-exports.ObterColecao=(Colecao)=>{
-    const Docs=getDocs(collection(db,Colecao))
-    Docs.then((Value)=>{return Value})
+// START LISTAS
+console.log("START LIST")
+if (ListaItens.CARRINHO.length==0){
+  get(child(ref(db),"Carrinho")).then((V)=>{ListaItens.CARRINHO=V.val()})
 }
-exports.AdicionarNaCoelcao=(Colecao)=>{
-    // const Docs=getDocs(collection(db,Colecao))
-    // Docs.then((Value)=>{return Value})
+if (ListaItens.ENDERECO.length==0){
+  get(child(ref(db),"Endereco")).then((V)=>{ListaItens.ENDERECO=V.val()})
+}
+if (ListaItens.FUNCIONARIO.length==0){
+  get(child(ref(db),"Funcionario")).then((V)=>{ListaItens.FUNCIONARIO=V.val()})
+}
+if (ListaItens.MOVIMENTACAO.length==0){
+  get(child(ref(db),"Movimentacao")).then((V)=>{ListaItens.MOVIMENTACAO=V.val()})
+}
+if (ListaItens.PRODUTO.length==0){
+  get(child(ref(db),"Produto")).then((V)=>{ListaItens.PRODUTO=V.val()})
+}
+if (ListaItens.USIARIO.length==0){
+  get(child(ref(db),"Usuario")).then((V)=>{ListaItens.USIARIO=V.val()})
+}
+
+// ATUALIZAR AS LISTAS
+console.log("UPDATE LISTAS")
+onValue(child(ref(db),"Carrinho"),(V)=>{ListaItens.CARRINHO=V.val()})
+onValue(child(ref(db),"Endereco"),(V)=>{ListaItens.ENDERECO=V.val()})
+onValue(child(ref(db),"Funcionario"),(V)=>{ListaItens.FUNCIONARIO=V.val()})
+onValue(child(ref(db),"Movimentacao"),(V)=>{ListaItens.MOVIMENTACAO=V.val()})
+onValue(child(ref(db),"Produto"),(V)=>{ListaItens.PRODUTO=V.val()})
+onValue(child(ref(db),"Usuario"),(V)=>{ListaItens.USIARIO=V.val()})
+
+exports.DeleteID=(Colecao,ID)=>{
+  remove(ref(Colecao+"/"+ID))
+}
+
+exports.Update=(Colecao,ID,NovosDados)=>{
+  update(ref(
+    Colecao+"/"+ID),NovosDados)
+}
+
+exports.Adicionar=(Colecao,Dados)=>{
+  set(ref(Colecao+"/"+ListaItens[Colecao.toUpperCase()].length+1),Dados)
 }

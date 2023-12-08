@@ -1,4 +1,5 @@
 const ListaItens=require("./ListaItens")
+const Connection=require("./Connection")
 const Modelo=require("../Modelos")
 /* 
 FUNCIONARIOS
@@ -30,7 +31,14 @@ exports.GET = (req, res) => {
 exports.POST = (req, res) => {
     const ID_FUNCIONARIO=req.query.ID_FUNCIONARIO
     const BODY=req.body
-    
+    if (ID_USUARIO && BODY) {
+        Connection.Adicionar("Funcionario",{
+            NOME:BODY.NOME,
+            ACESSO:BODY.ACESSO,
+            SENHA:BODY.SENHA,
+            TIPO:BODY.TIPO
+        })
+    }
 }
 exports.DELETE = (req, res) => {
     const ID_FUNCIONARIO=req.query.ID_FUNCIONARIO
@@ -39,5 +47,13 @@ exports.DELETE = (req, res) => {
 
 exports.PUT = (req, res) => {
     const BODY=req.body
+    
+}
 
+exports.Autenticar=(req,res)=>{
+    const BODY=req.body
+    res.send(ListaItens.FUNCIONARIO.filter((Item)=>
+        Item.ACESSO==BODY.ACESSO &&
+            Item.SENHA==BODY.SENHA
+    ))
 }

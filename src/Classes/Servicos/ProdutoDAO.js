@@ -1,4 +1,5 @@
 const ListaItens=require("./ListaItens")
+const Connection=require("./Connection")
 const Modelo=require("../Modelos")
 /* 
 PRODUTOS
@@ -19,8 +20,19 @@ exports.GET = (req, res) => {
 exports.POST = (req, res) => {
     const ID_PRODUTO=req.query.ID_PRODUTO
     const BODY=req.body
-    if (req.query.id) {
-        
+    if (ID_USUARIO && BODY) {
+        Connection.Adicionar("Produto",{
+            ID:BODY.ID,
+            NOME:BODY.NOME,
+            DESCRCAO:BODY.DESCRCAO,
+            VALOR:BODY.VALOR,
+            MARKADOR:BODY.MARKADOR,
+            MARCA:BODY.MARCA,
+            ESPECIFC:BODY.ESPECIFC,
+            QUANTIDADE:BODY.QUANTIDADE,
+            TAGS:BODY.TAGS,
+            IMG:BODY.IMG,
+        })
     }
 }
 exports.DELETE = (req, res) => {

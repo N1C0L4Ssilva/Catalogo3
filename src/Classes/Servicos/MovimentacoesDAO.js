@@ -1,4 +1,5 @@
 const ListaItens=require("./ListaItens")
+const Connection=require("./Connection")
 const Modelo=require("../Modelos")
 /* 
 MOVIMENTACAO
@@ -19,7 +20,12 @@ exports.GET = (req, res) => {
 exports.POST = (req, res) => {
     const ID_USUARIO=req.query.ID_USUARIO
     const BODY=req.body
-    if (req.query.id) {
-        
+    if (ID_USUARIO && BODY) {
+        Connection.Adicionar("Movimentacao",{
+            ID_USER:BODY.ID_USER,
+            ID_PRODUTO:BODY.ID_PRODUTO,
+            QUANTIDADE:BODY.QUANTIDADE,
+            TOTAL:BODY.TOTAL
+        })
     }
 }

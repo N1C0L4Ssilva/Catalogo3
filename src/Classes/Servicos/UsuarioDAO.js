@@ -1,4 +1,5 @@
 const ListaItens=require("./ListaItens")
+const Connection=require("./Connection")
 const Modelo=require("../Modelos")
 /* 
 USUARIO
@@ -18,8 +19,12 @@ exports.GET = (req, res) => {
 }
 exports.POST = (req, res) => {
     const BODY=req.body
-    if (req.query.id) {
-        
+    if (ID_USUARIO && BODY) {
+        Connection.Adicionar("Usuario",{
+            NOME:BODY.NOME,
+            ACESSO:BODY.ACESSO,
+            SENHA:BODY.SENHA,
+        })
     }
 }
 exports.DELETE = (req, res) => {
@@ -31,7 +36,15 @@ exports.DELETE = (req, res) => {
 exports.PUT = (req, res) => {
     const ID_USUARIO=req.query.ID_USUARIO
     const BODY=req.body
-    if (req.query.id) {
-        
+    if (ID_USUARIO && BODY) {
+
     }
+}
+
+exports.Autenticar=(req,res)=>{
+    const BODY=req.body
+    res.send(ListaItens.USIARIO.filter((Item)=>
+        Item.ACESSO==BODY.ACESSO &&
+            Item.SENHA==BODY.SENHA
+    ))
 }

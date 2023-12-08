@@ -1,4 +1,5 @@
 const ListaItens=require("./ListaItens")
+const Connection=require("./Connection")
 const Modelo=require("../Modelos")
 /* 
 ENDERECOS
@@ -21,5 +22,14 @@ exports.GET = (req, res) => {
 exports.POST = (req, res) => {
     const ID_USUARIO=req.query.ID_USUARIO
     const BODY=req.body
-    
+    if (ID_USUARIO && BODY) {
+        Connection.Adicionar("Endereco",{
+            ID_USER:BODY.ID_USUARIO,
+            ENDERECO:BODY.ENDERECO,
+            NUMERO:BODY.NUMERO,
+            COMPLEMENTO:BODY.COMPLEMENTO,
+            CEP:BODY.CEP,
+            VALOR:BODY.VALOR,
+        })
+    }
 }

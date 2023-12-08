@@ -1,4 +1,4 @@
-export class Carrinho{
+class Carrinho{
     ID=""
     ID_USER=""
     ID_PRODUTO=""
@@ -6,7 +6,7 @@ export class Carrinho{
     TOTAL=0
 }
 
-export class Endereco{
+class Endereco{
     ID=""
     ID_USER=""
     ENDERECO=""
@@ -16,7 +16,7 @@ export class Endereco{
     VALOR=0
 }
 
-export class Funcionario{
+ class Funcionario{
     ID=""
     NOME=""
     ACESSO=""
@@ -24,7 +24,7 @@ export class Funcionario{
     TIPO=0
 }
 
-export class Movimentacao{
+ class Movimentacao{
     ID=""
     ID_USER=""
     ID_PRODUTO=""
@@ -32,7 +32,7 @@ export class Movimentacao{
     TOTAL=0
 }
 
-export class Produto{
+ class Produto{
     ID=""
     NOME=""
     DESCRCAO=""
@@ -45,7 +45,7 @@ export class Produto{
     IMG=""
 }
 
-export class Usuario{
+ class Usuario{
     ID=""
     NOME=""
     ACESSO=""
