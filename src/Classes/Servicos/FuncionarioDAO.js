@@ -46,8 +46,14 @@ exports.DELETE = (req, res) => {
 }
 
 exports.PUT = (req, res) => {
+    const ID=req.query.ID_FUNCIONARIO
     const BODY=req.body
-    
+    Connection.Adicionar("Funcionario",ID,{
+        NOME:BODY.NOME,
+        ACESSO:BODY.ACESSO,
+        SENHA:BODY.SENHA,
+        TIPO:BODY.TIPO
+    })
 }
 
 exports.Autenticar=(req,res)=>{

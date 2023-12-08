@@ -28,7 +28,13 @@ exports.POST = (req, res) => {
 }
 exports.DELETE = (req, res) => {
     const ID=req.query.ID
+    const BODY=req.body
     if (ID) {
-        
+        Connection.Update("Carrinho",ID,{
+            ID_USER:BODY.ID_USER,
+            ID_PRODUTO:BODY.ID_PRODUTO,
+            QUANTIDADE:BODY.QUANTIDADE,
+            TOTAL:BODY.TOTAL
+        })
     }
 }

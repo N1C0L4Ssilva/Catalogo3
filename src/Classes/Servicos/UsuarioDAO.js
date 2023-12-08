@@ -34,10 +34,14 @@ exports.DELETE = (req, res) => {
     }
 }
 exports.PUT = (req, res) => {
-    const ID_USUARIO=req.query.ID_USUARIO
+    const ID=req.query.ID_USUARIO
     const BODY=req.body
-    if (ID_USUARIO && BODY) {
-
+    if (ID && BODY) {
+        Connection.Adicionar("Usuario",ID,{
+            NOME:BODY.NOME,
+            ACESSO:BODY.ACESSO,
+            SENHA:BODY.SENHA,
+        })
     }
 }
 

@@ -20,7 +20,7 @@ exports.GET = (req, res) => {
 exports.POST = (req, res) => {
     const ID_PRODUTO=req.query.ID_PRODUTO
     const BODY=req.body
-    if (ID_USUARIO && BODY) {
+    if (ID_PRODUTO && BODY) {
         Connection.Adicionar("Produto",{
             ID:BODY.ID,
             NOME:BODY.NOME,
@@ -42,9 +42,20 @@ exports.DELETE = (req, res) => {
     }
 }
 exports.PUT = (req, res) => {
-    const ID_PRODUTO=req.query.ID_PRODUTO
+    const ID=req.query.ID_PRODUTO
     const BODY=req.body
-    if (req.query.id) {
-        
+    if (ID_PRODUTO && BODY) {
+        Connection.Adicionar("Produto",ID,{
+            ID:BODY.ID,
+            NOME:BODY.NOME,
+            DESCRCAO:BODY.DESCRCAO,
+            VALOR:BODY.VALOR,
+            MARKADOR:BODY.MARKADOR,
+            MARCA:BODY.MARCA,
+            ESPECIFC:BODY.ESPECIFC,
+            QUANTIDADE:BODY.QUANTIDADE,
+            TAGS:BODY.TAGS,
+            IMG:BODY.IMG,
+        })
     }
 }
