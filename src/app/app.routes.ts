@@ -13,18 +13,18 @@ import { CATALOGOSEARCHComponent } from './catalogo-search/catalogo-search.compo
 import { REGISTRARComponent } from './registrar/registrar.component';
 
 export const routes: Routes = [
+    // PROGRAMADO
+
     // FUNCIONANDO E TESTADO
+    {path:"RegistrarItem", component:REGISTRARComponent},
+    
+    // FALTA TESTAR
     {path:"", component:CATALOGOMARCADORESCLIENTEComponent},
     {path:"Catalogo", component:CATALOGOCLIENTComponent},
     {path:"Search",component:CATALOGOSEARCHComponent},
-
-    // FALTA TESTAR
     {path:"Login_Register", component:LOGINREGISTERCLIENTComponent},
-    {path:"RegistrarItem", component:REGISTRARComponent},
-
 
     // NÃO FUNCIONANDO
-
     {path:"Contabil", component:CONTABILIDADEFUNCIONARIOComponent},
     {path:"Armazem", component:CATALOGOFUNCIONARIOComponent},
     {path:"Carrinho", component:CARRINHOCOMPRASCLIENTEComponent},
