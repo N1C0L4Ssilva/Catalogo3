@@ -1,4 +1,4 @@
-const baseURL="http://localhost:3000/Produto"
+const baseURL="http://localhost:3542/Produto"
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,6 +10,8 @@ import { Component } from '@angular/core';
 })
 export class CATALOGOMARCADORESCLIENTEComponent {
   async ngOnInit(){
-    
+    const Resp = await fetch(baseURL);
+    const Dt = await Resp.json(); // ou Resp.text() dependendo do tipo de resposta
+    console.log(Dt);
   }
 }
