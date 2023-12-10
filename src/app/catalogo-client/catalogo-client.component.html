@@ -14,16 +14,16 @@
         <a href="" class="Carrinho"><img src="../../assets/Carrinho.png" alt=""></a>
         <a href="" class="Home"><img src="../../assets/Home.png" alt=""></a>
     </nav>
-    <h3 class="TituloMarker">TITULOOO</h3>
+    <h3 class="TituloMarker">{{valorRecebido}}</h3>
     <div class="Catalogo">
-        <div class="Card">
-            <img src="../../assets/NoItem.png" alt="">
+        <div *ngFor="let I of ITENS" class="Card">
+            <img src="" alt="">
             <div>
-                <div class="UnicBar">TITULO</div>
-                <div class="UnicBar">tags</div> 
-                <div class="UnicBar">DESCRICAO</div>
+                <div class="UnicBar">{{I.NOME}}</div>
+                <div class="UnicBar">{{I.TAGS}}</div> 
+                <div class="UnicBar">{{I.DESCRCAO}}</div>
                 <div class="Vlr">
-                    <div>VALOR</div>
+                    <div>{{I.VALOR}}</div>
                     <button>ADD</button>
                 </div>
             </div>
