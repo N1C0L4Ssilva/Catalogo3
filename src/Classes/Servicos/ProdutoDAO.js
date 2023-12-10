@@ -11,10 +11,46 @@ PRODUTOS
 */
 exports.GET = (req, res) => {
     const ID_PRODUTO=req.query.ID_PRODUTO
-    if (ID_PRODUTO) {
-        res.send(ListaItens.PRODUTO.filter((Item)=>Item.ID==ID_PRODUTO))
+    const QUERY=req.query
+    if(QUERY!=null){
+        if(QUERY.TYPEFIND=="MARKER"){
+            const Valores=[]
+            for(const i in ListaItens.PRODUTOS){
+                const Ql=ListaItens.PRODUTOS[i]
+                if(!Valores.includes(Ql["MARKADOR"])){
+                    Valores.push(Ql["MARKADOR"])
+                }
+            }
+            return res.json(Valores)
+
+        }else if(QUERY.TYPEFIND=="ITEM_BY_MARKER"){
+            const IBM=QUERY.ITEM_BY_MARKER
+            const Valores=[]
+            for(const i in ListaItens.PRODUTOS){
+                const Ql=ListaItens.PRODUTOS[i]
+                if(Ql["MARCA"]==IBM){
+                    Valores.push(Ql)
+                }
+            }
+            return res.json(Valores)
+
+        }else if(QUERY.TYPEFIND=="ITEM_BY_SEARCH"){
+            const IBS=QUERY.ITEM_BY_SEARCH.toUpperCase()
+            const Valores=[]
+            for(const i in ListaItens.PRODUTOS){
+                const Ql=ListaItens.PRODUTOS[i]
+                if(Ql["NOME"].search(IBS)!=-1){
+                    Valores.push(Ql)
+                }
+            }
+            return res.json(Valores)
+        }
+    }else if(ID_PRODUTO){
+        console.log("ID_Produto")
+        return res.send(ListaItens.PRODUTO.filter((Item)=>Item.ID==ID_PRODUTO))
     }else{
-        res.send(ListaItens.PRODUTO)
+        // console.log("BATATA",ListaItens.PRODUTO)
+        return res.send(ListaItens.PRODUTO)
     }
 }
 exports.POST = (req, res) => {
@@ -32,6 +68,8 @@ exports.POST = (req, res) => {
             TAGS:BODY.TAGS,
             IMG:BODY.IMG,
         })
+    }else{
+        res.status(400).send({ error: "REQUISITAMOS MAIS DADOS" });
     }
 }
 exports.DELETE = (req, res) => {

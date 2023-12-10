@@ -1,13 +1,19 @@
-class Carrinho{
-    ID=""
+exports.Carrinho=class{
     ID_USER=""
     ID_PRODUTO=""
     QUANTIDADE=0
     TOTAL=0
+    constructor(Obj){
+        console.log(Obj)
+        this.ID_USER=Obj.ID_USER
+        this.ID_PRODUTO=Obj.ID_PRODUTO
+        this.QUANTIDADE=Obj.QUANTIDADE
+        this.TOTAL=Obj.TOTAL
+    }
 }
 
 class Endereco{
-    ID=""
+    
     ID_USER=""
     ENDERECO=""
     NUMERO=""
@@ -17,7 +23,7 @@ class Endereco{
 }
 
  class Funcionario{
-    ID=""
+    
     NOME=""
     ACESSO=""
     SENHA=""
@@ -25,15 +31,15 @@ class Endereco{
 }
 
  class Movimentacao{
-    ID=""
+    
     ID_USER=""
     ID_PRODUTO=""
     QUANTIDADE=0
     TOTAL=0
 }
 
- class Produto{
-    ID=""
+class Produto{
+    
     NOME=""
     DESCRCAO=""
     VALOR=0
@@ -46,7 +52,7 @@ class Endereco{
 }
 
  class Usuario{
-    ID=""
+    
     NOME=""
     ACESSO=""
     SENHA=""

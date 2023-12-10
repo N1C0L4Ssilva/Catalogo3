@@ -10,13 +10,21 @@ const Usuario=require("./Classes/Servicos/UsuarioDAO")
 const Express=require('express')
 const Server=Express()
 
+Server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // ou você pode definir apenas um domínio específico
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 /* CARRINHO
     GET :ID_USUARIO;                    -- OBTER
     POST :ID_PRODUTO,ID_USUARIO         -- ADICIONAR
     DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
 */
-Server.get("/Carrinho/:ID_USUARIO",Carrinho.GET)
-Server.post("/Carrinho/:ID_USUARIO&:ID_PRODUTO",Carrinho.POST)
+Server.get("/Carrinho",Carrinho.GET)
+Server.get("/Carrinho/?ID_USUARIO",Carrinho.GET)
+Server.post("/Carrinho/?ID_USUARIO&:ID_PRODUTO",Carrinho.POST)
 Server.delete("/Carrinho/:ID_USUARIO&:ID_PRODUTO",Carrinho.DELETE)
 
 /* ENDERECOS
@@ -53,6 +61,11 @@ Server.post("/Movimentacao",Movimentacao.POST)
     DELETE :ID_PRODUTO                  -- REMOVER
     PUT [res.Body] :ID                      -- ATUALIZAR
 */
+
+// Server.get("/Produto",(req,res)=>{
+//     return res.send({mensage:"batata"})
+// })
+
 Server.get("/Produto",Produto.GET)
 Server.get("/Produto/:ID_PRODUTO",Produto.GET)
 Server.post("/Produto",Produto.POST)
@@ -76,6 +89,6 @@ Server.put("/Usuario/:ID_USUARIO",Usuario.PUT)
 Server.get("/",(req,res)=>{
   return res.json({mensage:"é nois"})
 })
-Server.listen(3000,()=>{
+Server.listen(3542,()=>{
   require("./Classes/Servicos/Connection")
 })

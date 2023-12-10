@@ -1,4 +1,5 @@
 console.log("START CONECTION")
+const {Carrinho}=require("../Modelos")
 const ListaItens=require("./ListaItens")
 const {initializeApp}=require('firebase/app')
 const {getDatabase, child, onValue, ref, get, set, update, remove }=require("firebase/database")
@@ -15,7 +16,7 @@ const FireApp=initializeApp({
 const db=getDatabase()
 
 // START LISTAS
-console.log("START LIST")
+// console.log("START LIST")
 if (ListaItens.CARRINHO.length==0){
   get(child(ref(db),"Carrinho")).then((V)=>{ListaItens.CARRINHO=V.val()})
 }
@@ -28,7 +29,7 @@ if (ListaItens.FUNCIONARIO.length==0){
 if (ListaItens.MOVIMENTACAO.length==0){
   get(child(ref(db),"Movimentacao")).then((V)=>{ListaItens.MOVIMENTACAO=V.val()})
 }
-if (ListaItens.PRODUTO.length==0){
+if (ListaItens.PRODUTOS.length==0){
   get(child(ref(db),"Produto")).then((V)=>{ListaItens.PRODUTO=V.val()})
 }
 if (ListaItens.USIARIO.length==0){
@@ -36,12 +37,12 @@ if (ListaItens.USIARIO.length==0){
 }
 
 // ATUALIZAR AS LISTAS
-console.log("UPDATE LISTAS")
+// console.log("UPDATE LISTAS")
 onValue(child(ref(db),"Carrinho"),(V)=>{ListaItens.CARRINHO=V.val()})
 onValue(child(ref(db),"Endereco"),(V)=>{ListaItens.ENDERECO=V.val()})
 onValue(child(ref(db),"Funcionario"),(V)=>{ListaItens.FUNCIONARIO=V.val()})
 onValue(child(ref(db),"Movimentacao"),(V)=>{ListaItens.MOVIMENTACAO=V.val()})
-onValue(child(ref(db),"Produto"),(V)=>{ListaItens.PRODUTO=V.val()})
+onValue(child(ref(db),"Produto"),(V)=>{ListaItens.PRODUTOS=V.val()})
 onValue(child(ref(db),"Usuario"),(V)=>{ListaItens.USIARIO=V.val()})
 
 exports.DeleteID=(Colecao,ID)=>{
@@ -49,8 +50,7 @@ exports.DeleteID=(Colecao,ID)=>{
 }
 
 exports.Update=(Colecao,ID,NovosDados)=>{
-  update(ref(
-    Colecao+"/"+ID),NovosDados)
+  update(ref(Colecao+"/"+ID),NovosDados)
 }
 
 exports.Adicionar=(Colecao,Dados)=>{
