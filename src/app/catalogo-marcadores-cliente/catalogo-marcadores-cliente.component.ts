@@ -1,5 +1,4 @@
 const baseURL="http://localhost:3000/Produto"
-import { TESTEService } from "../teste.service"
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,6 +10,6 @@ import { Component } from '@angular/core';
 })
 export class CATALOGOMARCADORESCLIENTEComponent {
   async ngOnInit(){
-    new TESTEService().GetDados()
+    
   }
 }
