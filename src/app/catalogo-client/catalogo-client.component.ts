@@ -16,16 +16,27 @@ export class CATALOGOCLIENTComponent {
   private Service:ConectDBService=new ConectDBService()
   constructor(private route: ActivatedRoute) {}
   async ngOnInit(){
+    this.ITENS=[]
     this.valorRecebido = this.route.snapshot.paramMap.get('MARKER');
-    console.log("GET ITEM BY MARKER ziggy")
+    // console.log("GET ITEM BY MARKER",this.valorRecebido)
     if(this.valorRecebido){
       this.Service.GET(`Produto/?${
         new URLSearchParams({
           TYPEFIND:"ITEM_BY_MARKER",
-          ITEM_BY_MARKER:"ZIGGY"
+          ITEM_BY_MARKER:this.valorRecebido
         }).toString()
-      }`).then((v)=>{this.ITENS=v; console.log(v)})
+      }`).then((v)=>{
+        for(const i in v){
+          if(!this.ITENS.find((Test)=>{return Test.ID==v[i].MARCA})){
+            this.ITENS.push({
+              ID:v[i].MARCA,
+              ITENS:[]
+            })
+          }
+          const LST=this.ITENS.find((Test)=>{return Test.ID==v[i].MARCA})
+          LST.ITENS.push(v[i])
+        }
+      })
     }
-    console.log(this.ITENS)
   }
 }

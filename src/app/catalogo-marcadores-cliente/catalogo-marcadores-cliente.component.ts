@@ -24,27 +24,27 @@ export class CATALOGOMARCADORESCLIENTEComponent {
         TYPEFIND:"MARKER"
       }).toString()
     }`).then((v:any)=>{this.MARCADORES=v})
-    console.log("=====_=====_=====")
+    // console.log("=====_=====_=====")
 
-    console.log("GET ITEM BY MARKER ziggy")
-    this.Service.GET(`Produto/?${
-      new URLSearchParams({
-        TYPEFIND:"ITEM_BY_MARKER",
-        ITEM_BY_MARKER:"ZIGGY"
-      }).toString()
-    }`).then((v)=>console.log(v))
-    console.log("=====_=====_=====")
+    // console.log("GET ITEM BY MARKER ziggy")
+    // this.Service.GET(`Produto/?${
+    //   new URLSearchParams({
+    //     TYPEFIND:"ITEM_BY_MARKER",
+    //     ITEM_BY_MARKER:"ZIGGY"
+    //   }).toString()
+    // }`).then((v)=>console.log(v))
+    // console.log("=====_=====_=====")
 
-    console.log("GET ITEM BY SEARCH Uv")
-    this.Service.GET(`Produto/?${
-      new URLSearchParams({
-        TYPEFIND:"ITEM_BY_SEARCH",
-        ITEM_BY_SEARCH:"a",
-      }).toString()
-    }`).then((v)=>console.log(v))
-    console.log("=====_=====_=====")
+    // console.log("GET ITEM BY SEARCH Uv")
+    // this.Service.GET(`Produto/?${
+    //   new URLSearchParams({
+    //     TYPEFIND:"ITEM_BY_SEARCH",
+    //     ITEM_BY_SEARCH:"a",
+    //   }).toString()
+    // }`).then((v)=>console.log(v))
+    // console.log("=====_=====_=====")
 
-    console.log(this.MARCADORES)
+    // console.log(this.MARCADORES)
   }
   Encaminhar(I:string){
     this.router.navigate(['/Catalogo',{MARKER:I}]);

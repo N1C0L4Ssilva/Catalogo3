@@ -15,20 +15,23 @@
         <a href="" class="Home"><img src="../../assets/Home.png" alt=""></a>
     </nav>
     <h3 class="TituloMarker">{{valorRecebido}}</h3>
-    <div class="Catalogo">
-        <div *ngFor="let I of ITENS" class="Card">
-            <img src="" alt="">
-            <div>
-                <div class="UnicBar">{{I.NOME}}</div>
-                <div class="UnicBar">{{I.TAGS}}</div> 
-                <div class="UnicBar">{{I.DESCRCAO}}</div>
-                <div class="Vlr">
-                    <div>{{I.VALOR}}</div>
-                    <button>ADD</button>
+    <section *ngFor="let Mrk of ITENS" class="Result">
+        <h3 class="TituloMarker">{{Mrk.ID}}</h3>
+        <div class="Catalogo">
+            <div *ngFor="let I of Mrk.ITENS" class="Card">
+                <img src="" alt="">
+                <div>
+                    <div class="UnicBar">{{I.NOME}}</div>
+                    <div class="UnicBar">{{I.TAGS}}</div> 
+                    <div class="UnicBar">{{I.DESCRCAO}}</div>
+                    <div class="Vlr">
+                        <div>{{I.VALOR}}</div>
+                        <button>ADD</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <footer></footer>
 </body>
 </html>
