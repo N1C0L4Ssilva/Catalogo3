@@ -8,209 +8,30 @@
 <body>
     <nav>
         <div class="SearchBar">
-            <input type="text">
-            <img src="../../assets/Lupa.png" alt="">
+            <input #InputSearch type="text">
+            <img (click)="Pesquisar()" src="../../assets/Lupa.png" alt="">
         </div>
         <a href="" class="Carrinho"><img src="../../assets/Carrinho.png" alt=""></a>
         <a href="" class="Home"><img src="../../assets/Home.png" alt=""></a>
     </nav>
-    <div class="ResultsCatalogo">
-        <section class="Result">
-            <h3 class="TituloMarker">titulo: MARKER</h3>
-            <div class="Catalogo">
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
+    <h3 class="TituloMarker">Pesquisa por: {{valorRecebido}}</h3>
+    <section *ngFor="let Mrk of ITENS" class="Result">
+        <h3 class="TituloMarker">{{Mrk.ID}}</h3>
+        <div class="Catalogo">
+            <div *ngFor="let I of Mrk.ITENS" class="Card">
+                <img src="" alt="">
+                <div>
+                    <div class="UnicBar">{{I.NOME}}</div>
+                    <div class="UnicBar">{{I.TAGS}}</div> 
+                    <div class="UnicBar">{{I.DESCRCAO}}</div>
+                    <div class="Vlr">
+                        <div>{{I.VALOR}}</div>
+                        <button>ADD</button>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="Result">
-            <h3 class="TituloMarker">bebidas: SUCOS</h3>
-            <div class="Catalogo">
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="Result">
-            <h3 class="TituloMarker">Frutas: MARKER</h3>
-            <div class="Catalogo">
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="Card">
-                    <img srsrc="../../assets/NoItem.png" alt="">
-                    <div>
-                        <div class="UnicBar">TITULO</div>
-                        <div class="UnicBar">tags</div> 
-                        <div class="UnicBar">DESCRICAO</div>
-                        <div class="Vlr">
-                            <div>VALOR</div>
-                            <button>ADD</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+        </div>
+    </section>
     <footer></footer>
 </body>
 </html>

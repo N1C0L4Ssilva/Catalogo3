@@ -8,76 +8,12 @@
 <body>
     <nav>
         <div class="SearchBar">
-            <input type="text">
-            <img src="../../assets/Lupa.png" alt="">
+            <input #InputSearch type="text">
+            <img (click)="Pesquisar()" src="../../assets/Lupa.png" alt="">
         </div>
         <a href="" class="Carrinho"><img src="../../assets/Carrinho.png" alt=""></a>
         <a href="" class="Home"><img src="../../assets/Home.png" alt=""></a>
     </nav>
-    <!--<div class="CardNews">
-        <div class="MarkerCatalogo"> 
-            <span class="TextoMarcador">NOVIDADES</span>
-            <div>
-                <div class="card">
-                    <img src="../../assets/NoItem.png" alt="">
-                    <span class="TextoSeNaoImg"></span>
-                    <span class="Titulo">ITEM NUMERO 1</span>
-                    <span class="Valor">0,12</span>
-                </div>
-                <div class="card">
-                    <span class="TextoSeNaoImg">CARD SEM IMAGEM</span>
-                    <span class="Titulo">ITEM NUMERO 2</span>
-                    <span class="Valor">0,12</span>
-                </div>
-                <!-- DECONTO -- >
-                <div class="card">
-                    <img src="../../assets/NoItem.png" alt="">
-                    <span class="TextoSeNaoImg"></span>
-                    <span class="Titulo">ITEM NUMERO 1</span>
-                    <span class="Valor">2,34</span>
-                    <span class="DescontoQuant">3 por 4,56</span>
-                </div>
-                <div class="card">
-                    <span class="TextoSeNaoImg">CARD SEM IMAGEM</span>
-                    <span class="Titulo">ITEM NUMERO 2</span>
-                    <span class="Valor">2,34</span>
-                    <span class="DescontoQuant">3 por 4,56</span>
-                </div>
-                <!-- PROMOÇÃO -- >
-                <div class="card">
-                    <img src="../../assets/NoItem.png" alt="">
-                    <span class="Titulo">ITEM NUMERO 1</span>
-                    <span class="Promocao" style="order: 99;" >6,78</span>
-                    <span class="Valor">8,90</span>
-                </div>
-                <div class="card">
-                    <span class="TextoSeNaoImg">CARD SEM IMAGEM</span>
-                    <span class="Titulo">ITEM NUMERO 1</span>
-                    <span class="Promocao" style="order: 99;" >6,78</span>
-                    <span class="Valor">8,90</span>
-                </div>
-                <!-- ESGOTADO -- >
-                <div class="card">
-                    <div class="Esgotado">
-                        <span>ESGOTADO</span>
-                    </div>
-                    <img src="../../assets/NoItem.png" alt="">
-                    <span class="Titulo">ITEM NUMERO 1</span>
-                    <span class="Promocao" style="order: 99;" >6,78</span>
-                    <span class="Valor">8,90</span>
-                </div>
-                <div class="card">
-                    <div class="Esgotado">
-                        <span>ESGOTADO</span>
-                    </div>
-                    <span class="TextoSeNaoImg">CARD SEM IMAGEM</span>
-                    <span class="Titulo">ITEM NUMERO 1</span>
-                    <span class="Promocao" style="order: 99;" >6,78</span>
-                    <span class="Valor">8,90</span>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="Catalogo">
         <div class="MarkerCatalogo"> 
             <span class="TextoMarcador"> MARCADORES </span>

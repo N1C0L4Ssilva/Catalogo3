@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import {ConectDBService} from "../conect-db.service"
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ElementRef, ViewChildren } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalogo-client',
@@ -11,10 +11,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './catalogo-client.component.css'
 })
 export class CATALOGOCLIENTComponent {
+  private InputSearch: ElementRef;
+  private router:Router=new Router()
+
   public valorRecebido:string | null=""
   public ITENS:any[]=[]
   private Service:ConectDBService=new ConectDBService()
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,InputSearch:ElementRef){
+    this.InputSearch=InputSearch
+  }
   async ngOnInit(){
     this.ITENS=[]
     this.valorRecebido = this.route.snapshot.paramMap.get('MARKER');
@@ -38,5 +43,8 @@ export class CATALOGOCLIENTComponent {
         }
       })
     }
+  }
+  Pesquisar(){
+    console.log(this.InputSearch.nativeElement)
   }
 }
