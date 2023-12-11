@@ -18,7 +18,10 @@ export class SearchBarComponent {
       this.router.navigate(['/Search',{Search:Txt}]);
     }
   }
-  Test(){
-    console.log("AA")
+  IrCart(){
+    this.router.navigate(['/Carrinho']);
+  }
+  IrInicio(){
+    this.router.navigate(['/']);
   }
 }

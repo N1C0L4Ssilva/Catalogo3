@@ -3,12 +3,13 @@ import {ConectDBService} from "../conect-db.service"
 import { Component, ElementRef, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { FooterBarComponent } from "../Template/footer-bar/footer-bar.component"
 import { CardCatalogoComponent } from "../Template/card-catalogo/card-catalogo.component"
 import { SearchBarComponent } from "../Template/search-bar/search-bar.component"
 @Component({
   selector: 'app-catalogo-client',
   standalone: true,
-  imports: [CommonModule,SearchBarComponent,CardCatalogoComponent],
+  imports: [CommonModule,SearchBarComponent,CardCatalogoComponent,FooterBarComponent],
   templateUrl: './catalogo-client.component.html',
   styleUrl: './catalogo-client.component.css'
 })

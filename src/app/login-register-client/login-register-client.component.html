@@ -8,18 +8,18 @@
 </head>
 <body>
     <section #LoginSection class="LOGIN Frente">
-        <form>
+        <form (ngSubmit)="Logar()" #form="ngForm">
             <h3>LOGIN</h3>
             <div class="Email">
-                <input type="text"required>
+                <input id="Email" type="email" [(ngModel)]="LogarDados.Email" required [ngModelOptions]="{standalone: true}">
                 <span class="Texto">EMAIL</span>
             </div>
             <div class="Senha">
                 <div class="IconEye">
-                    <input type="checkbox">
+                    <input id="Senha" type="checkbox">
                     <div></div>
                 </div>
-                <input class="SenhaInput" type="text" required>
+                <input class="SenhaInput" type="text" [(ngModel)]="LogarDados.Senha" required [ngModelOptions]="{standalone: true}">
                 <span class="Texto">SENHA</span>
             </div>
             <button type="submit">LOGIN</button>
@@ -27,10 +27,10 @@
         <button class="MovePage" (click)="Rotate()">Clique aqui para se <span>REGISTRAR</span></button>
     </section>
     <section #RegisterSection class="REGISTER Traz">
-        <form>
+        <form (ngSubmit)="Registrar()" #form="ngForm">
             <h3>REGISTRAR</h3>
             <div class="Email">
-                <input type="text" required>
+                <input  id="Email" type="email" [(ngModel)]="RegistrarDados.Email" required [ngModelOptions]="{standalone: true}">
                 <span class="Texto">EMAIL</span>
             </div>
             <div class="Senha">
@@ -38,7 +38,7 @@
                     <input type="checkbox">
                     <div></div>
                 </div>
-                <input class="SenhaInput" type="text"required>
+                <input id="Senha" class="SenhaInput" type="text" [(ngModel)]="RegistrarDados.Senha" required [ngModelOptions]="{standalone: true}">
                 <span class="Texto">SENHA</span>
             </div>
             <div class="cofSenha">
@@ -46,12 +46,12 @@
                     <input type="checkbox">
                     <div></div>
                 </div>
-                <input class="SenhaInput" type="text"required>
+                <input id="ConfSenha" class="SenhaInput" type="text" [(ngModel)]="RegistrarDados.ConfirmSenha" required [ngModelOptions]="{standalone: true}">
                 <span class="Texto">CONFIRMAR</span>
             </div>
             <button type="submit">REGISTRAR</button>
         </form>
-        <button class="MovePage"  (click)="Rotate()">Já possui conta? Clique aqui para <span>ENTRAR</span></button>
+        <button class="MovePage" (click)="Rotate()">Já possui conta? Clique aqui para <span>ENTRAR</span></button>
     </section>
 </body>
 </html>

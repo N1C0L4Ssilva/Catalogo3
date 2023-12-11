@@ -15,22 +15,20 @@ export class ConectDBService {
     });
     return await Resp.json()
   }
-  POST = async (Compl:String,Data:any)=>{
+  POST = async (Compl:String)=>{
     await fetch(baseURL+Compl,{
       method:"POST",
       headers: {
         "Content-Type": "application/json",
-      },
-      body:JSON.stringify(Data)
+      }
     });
   }
-  PUT = async (Compl:String,Data:any)=>{
+  PUT = async (Compl:String)=>{
     await fetch(baseURL+Compl,{
       method:"PUT",
       headers: {
         "Content-Type": "application/json",
-      },
-      body:JSON.stringify(Data)
+      }
     });
   }
   DELETE = async (Compl:String)=>{

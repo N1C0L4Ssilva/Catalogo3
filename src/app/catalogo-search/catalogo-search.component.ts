@@ -5,17 +5,17 @@ import { CommonModule } from '@angular/common';
 
 import { CardCatalogoComponent } from "../Template/card-catalogo/card-catalogo.component"
 import { SearchBarComponent } from "../Template/search-bar/search-bar.component"
+import { FooterBarComponent } from "../Template/footer-bar/footer-bar.component"
 
 @Component({ 
   selector: 'app-catalogo-search',
   standalone: true,
-  imports: [CommonModule,SearchBarComponent,CardCatalogoComponent],
+  imports: [CommonModule,SearchBarComponent,CardCatalogoComponent,FooterBarComponent],
   templateUrl: './catalogo-search.component.html',
   styleUrl: './catalogo-search.component.css'
 })
 export class CATALOGOSEARCHComponent {
   @ViewChildren('InputSearch') InputSearch: ElementRef;
-  private router:Router=new Router()
 
   public valorRecebido:string | null=""
   public ITENS:any[]=[]

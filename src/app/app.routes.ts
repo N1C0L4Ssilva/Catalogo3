@@ -16,15 +16,15 @@ export const routes: Routes = [
     // PROGRAMADO
 
     // FUNCIONANDO E TESTADO
-    {path:"RegistrarItem", component:REGISTRARComponent},
     
     // FALTA TESTAR
     {path:"", component:CATALOGOMARCADORESCLIENTEComponent},
     {path:"Catalogo", component:CATALOGOCLIENTComponent},
     {path:"Search",component:CATALOGOSEARCHComponent},
     {path:"Login_Register", component:LOGINREGISTERCLIENTComponent},
-
+    
     // NÃO FUNCIONANDO
+    {path:"RegistrarItem", component:REGISTRARComponent},
     {path:"Contabil", component:CONTABILIDADEFUNCIONARIOComponent},
     {path:"Armazem", component:CATALOGOFUNCIONARIOComponent},
     {path:"Carrinho", component:CARRINHOCOMPRASCLIENTEComponent},
