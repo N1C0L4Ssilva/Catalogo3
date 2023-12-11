@@ -11,18 +11,12 @@
     <section *ngFor="let Mrk of ITENS" class="Result">
         <h3 class="TituloMarker">{{Mrk.ID}}</h3>
         <div class="Catalogo">
-            <div *ngFor="let I of Mrk.ITENS" class="Card">
-                <img src="" alt="">
-                <div>
-                    <div class="UnicBar">{{I.NOME}}</div>
-                    <div class="UnicBar">{{I.TAGS}}</div> 
-                    <div class="UnicBar">{{I.DESCRCAO}}</div>
-                    <div class="Vlr">
-                        <div>{{I.VALOR}}</div>
-                        <button>ADD</button>
-                    </div>
-                </div>
-            </div>
+            <app-card-catalogo *ngFor="let I of Mrk.ITENS"
+                Nom={{I.NOME}}
+                Dec={{I.DESCRCAO}}
+                Val={{I.VALOR}}
+                Tag={{I.TAGS}}
+            ></app-card-catalogo>
         </div>
     </section>
     <footer></footer>

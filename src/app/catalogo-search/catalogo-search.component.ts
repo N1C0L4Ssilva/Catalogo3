@@ -3,12 +3,13 @@ import { ConectDBService } from '../conect-db.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { SearchBarComponent } from "../search-bar/search-bar.component"
+import { CardCatalogoComponent } from "../Template/card-catalogo/card-catalogo.component"
+import { SearchBarComponent } from "../Template/search-bar/search-bar.component"
 
 @Component({ 
   selector: 'app-catalogo-search',
   standalone: true,
-  imports: [CommonModule,SearchBarComponent],
+  imports: [CommonModule,SearchBarComponent,CardCatalogoComponent],
   templateUrl: './catalogo-search.component.html',
   styleUrl: './catalogo-search.component.css'
 })
@@ -31,13 +32,14 @@ export class CATALOGOSEARCHComponent {
         }).toString()
       }`).then((v)=>{
         for(const i in v){
-          if(!this.ITENS.find((Test)=>{return Test.ID==v[i].MARCA})){
+          console.log(v[i])
+          if(!this.ITENS.find((Test)=>{return Test.ID==`${v[i].MARKADOR}: ${v[i].MARCA}`})){
             this.ITENS.push({
-              ID:v[i].MARCA,
+              ID:`${v[i].MARKADOR}: ${v[i].MARCA}`,
               ITENS:[]
             })
           }
-          const LST=this.ITENS.find((Test)=>{return Test.ID==v[i].MARCA})
+          const LST=this.ITENS.find((Test)=>{return Test.ID==`${v[i].MARKADOR}: ${v[i].MARCA}`})
           LST.ITENS.push(v[i])
         }
       })
