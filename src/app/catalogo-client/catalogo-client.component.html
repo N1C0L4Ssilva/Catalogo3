@@ -6,14 +6,7 @@
     <title>CATALOGO ITENS</title>
 </head>
 <body>
-    <nav>
-        <div class="SearchBar">
-            <input #InputSearch type="text">
-            <img (click)="Pesquisar()" src="../../assets/Lupa.png" alt="">
-        </div>
-        <a href="" class="Carrinho"><img src="../../assets/Carrinho.png" alt=""></a>
-        <a href="" class="Home"><img src="../../assets/Home.png" alt=""></a>
-    </nav>
+    <app-search-bar></app-search-bar>
     <h3 class="TituloMarker">{{valorRecebido}}</h3>
     <section *ngFor="let Mrk of ITENS" class="Result">
         <h3 class="TituloMarker">{{Mrk.ID}}</h3>

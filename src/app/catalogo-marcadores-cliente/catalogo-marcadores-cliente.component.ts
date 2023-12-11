@@ -3,12 +3,12 @@ import {ConectDBService} from "../conect-db.service"
 import { Component, ElementRef, NO_ERRORS_SCHEMA, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-// import { CardMarcadoresComponent } from "../Templates/card-marcadores/card-marcadores.component"
-@Component({
+import { SearchBarComponent } from "../search-bar/search-bar.component"
+@Component({ 
   selector: 'app-catalogo-marcadores-cliente',
   standalone: true,
   schemas:[NO_ERRORS_SCHEMA],
-  imports: [CommonModule],
+  imports: [CommonModule,SearchBarComponent],
   templateUrl: './catalogo-marcadores-cliente.component.html',
   styleUrls: ['./catalogo-marcadores-cliente.component.css']
 })
@@ -31,11 +31,5 @@ export class CATALOGOMARCADORESCLIENTEComponent {
   }
   Encaminhar(I:string){
     this.router.navigate(['/Catalogo',{MARKER:I}]);
-  }
-  Pesquisar(){
-    const Txt:string|null=this.InputSearch.nativeElement.value
-    if(Txt!=null && Txt!=""){
-      this.router.navigate(['/Search',{Search:Txt}]);
-    }
   }
 }

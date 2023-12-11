@@ -3,10 +3,12 @@ import { ConectDBService } from '../conect-db.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-@Component({
+import { SearchBarComponent } from "../search-bar/search-bar.component"
+
+@Component({ 
   selector: 'app-catalogo-search',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,SearchBarComponent],
   templateUrl: './catalogo-search.component.html',
   styleUrl: './catalogo-search.component.css'
 })
@@ -40,9 +42,5 @@ export class CATALOGOSEARCHComponent {
         }
       })
     }
-  }
-  Pesquisar(){
-    console.log(this.InputSearch.nativeElement)
-
   }
 }
