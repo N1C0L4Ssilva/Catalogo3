@@ -12,7 +12,7 @@ PRODUTOS
 exports.GET = (req, res) => {
     const ID_PRODUTO=req.query.ID_PRODUTO
     const QUERY=req.query
-    if(QUERY!=null){
+    if(QUERY.TYPEFIND != undefined){
         if(QUERY.TYPEFIND=="MARKER"){
             const Valores=[]
             for(const i in ListaItens.PRODUTOS){
@@ -28,7 +28,7 @@ exports.GET = (req, res) => {
             const Valores=[]
             for(const i in ListaItens.PRODUTOS){
                 const Ql=ListaItens.PRODUTOS[i]
-                if(Ql["MARCA"]==IBM){
+                if(Ql["MARKADOR"]==IBM){
                     Valores.push(Ql)
                 }
             }
@@ -46,10 +46,8 @@ exports.GET = (req, res) => {
             return res.json(Valores)
         }
     }else if(ID_PRODUTO){
-        console.log("ID_Produto")
         return res.send(ListaItens.PRODUTO.filter((Item)=>Item.ID==ID_PRODUTO))
     }else{
-        // console.log("BATATA",ListaItens.PRODUTO)
         return res.send(ListaItens.PRODUTO)
     }
 }
