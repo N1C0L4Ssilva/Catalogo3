@@ -16,16 +16,17 @@ exports.GET = (req, res) => {
     }
 }
 exports.POST = (req, res) => {
-    const ID_USUARIO=req.query.ID_USUARIO
-    const ID_PRODUTO=req.query.ID_PRODUTO
-    const BODY=req.body
-    if (ID_USUARIO && ID_PRODUTO && BODY) {
-        Connection.Adicionar("Carrinho",{
-            ID_USER:BODY.ID_USER,
-            ID_PRODUTO:BODY.ID_PRODUTO,
-            QUANTIDADE:BODY.QUANTIDADE,
-            TOTAL:BODY.TOTAL
-        })
+    const QUERY=req.query
+    if (QUERY!=undefined) {
+        if(QUERY.ID_USUARIO!=undefined && QUERY.ID_PRODUTO!=undefined){
+            const VItem=ListaItens.PRODUTOS[QUERY.ID_PRODUTO].VALOR
+            Connection.Adicionar("Carrinho",{
+                ID_USER:QUERY.ID_USUARIO,
+                ID_PRODUTO:QUERY.ID_PRODUTO,
+                QUANTIDADE:1,
+                TOTAL:VItem
+            })
+        }
     }
 }
 exports.DELETE = (req, res) => {

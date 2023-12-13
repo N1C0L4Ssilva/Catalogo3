@@ -10,21 +10,64 @@ USUARIO
     PUT [JSON] :ID                      -- ATUALIZAR
 */
 exports.GET = (req, res) => {
-    const ID_USUARIO=req.query.ID_USUARIO
-    if (ID_USUARIO) {
-        res.send(ListaItens.USIARIO.filter((Item)=>Item.ID==ID_USUARIO))
-    }else{
-        res.send(ListaItens.USIARIO)
+    console.log("GET")
+    const QUERY=req.query
+    const BODY=req.body
+    console.log(QUERY,BODY,"EU AQ")
+    if(QUERY != undefined){
+        console.log("kjasndkjasndj")
+        for(const i in ListaItens.USIARIO){
+            const Res=ListaItens.USIARIO[i]
+            if(Res.ACESSO==QUERY.ACESSO){
+                if(Res.SENHA==QUERY.SENHA){
+                    return res.json(Res)
+                }else{
+                    res.send({alert:"SENHA ERRADA"})
+                }
+            }
+        }
+
+        // if(ListaItens.USIARIO.filter((L2)=>L2.ACESSO==QUERY.ACESSO)){
+        //     if(ListaItens.USIARIO.filter((L2)=>L2.SENHA==QUERY.SENHA)){
+        //         res.json(ListaItens.USIARIO.filter((L2)=>L2.ACESSO==QUERY.ACESSO))
+        //     }else{
+        //         res.send({alert:"SENHA ERRADA"})
+        //     }
+        // }else{
+            // }
+        res.send({alert:"EMAIL INEXISTENTE"})
     }
+    // const ID_USUARIO=req.query.ID_USUARIO
+    // if (ID_USUARIO) {
+    //     res.send(ListaItens.USIARIO.filter((Item)=>Item.ID==ID_USUARIO))
+    // }else{
+    //     res.send(ListaItens.USIARIO)
+    // }
 }
 exports.POST = (req, res) => {
-    const BODY=req.body
-    if (BODY) {
-        Connection.Adicionar("Usuario",{
-            NOME:BODY.NOME,
-            ACESSO:BODY.ACESSO,
-            SENHA:BODY.SENHA,
-        })
+    console.log("POST")
+    const QUERY=req.query
+    console.log(QUERY)
+    if(QUERY != undefined){
+        let Pode=true
+        for(const i in ListaItens.USIARIO){
+            const Res=ListaItens.USIARIO[i]
+            console.log("COMPARAÇÃO",Res.ACESSO,QUERY.ACESSO)
+            if(Res.ACESSO==QUERY.ACESSO){
+                Pode=false
+            }
+        }
+        if(Pode){
+            Connection.AdicionarComID("Usuario",{
+                ACESSO:QUERY.ACESSO,
+                ID:"",
+                NOME:QUERY.NOME,
+                SENHA:QUERY.SENHA,
+                TIPO:"CLIENTE",
+            })
+        }else{
+            res.json("EMAIL EXISTENTE")
+        }
     }
 }
 exports.DELETE = (req, res) => {
@@ -37,11 +80,17 @@ exports.PUT = (req, res) => {
     const ID=req.query.ID_USUARIO
     const BODY=req.body
     if (ID && BODY) {
-        Connection.Adicionar("Usuario",ID,{
-            NOME:BODY.NOME,
-            ACESSO:BODY.ACESSO,
-            SENHA:BODY.SENHA,
-        })
+        
+        if(Pode){
+            Connection.Adicionar("Usuario",ID,{
+                NOME:BODY.NOME,
+                ACESSO:BODY.ACESSO,
+                SENHA:BODY.SENHA,
+            })
+        }else{
+            console.log("TEM")
+            return res.json("EMAIL EXISTENTE")
+        }
     }
 }
 

@@ -23,17 +23,15 @@ Server.use((req, res, next) => {
     DELETE :ID_PRODUTO,ID_USUARIO       -- REMOVER
 */
 Server.get("/Carrinho",Carrinho.GET)
-Server.get("/Carrinho/?ID_USUARIO",Carrinho.GET)
-Server.post("/Carrinho/?ID_USUARIO&:ID_PRODUTO",Carrinho.POST)
-Server.delete("/Carrinho/:ID_USUARIO&:ID_PRODUTO",Carrinho.DELETE)
+Server.post("/Carrinho",Carrinho.POST)
+Server.delete("/Carrinho",Carrinho.DELETE)
 
 /* ENDERECOS
     GET :ID_USUARIO;                        -- OBTER
     POST [res.Body], :ID_USUARIO;           -- ADICIONAR
 */
 Server.get("/Endereco",Endereco.GET)
-Server.get("/Endereco/:ID_USUARIO",Endereco.GET)
-Server.post("/Endereco/:ID_USUARIO",Endereco.POST)
+Server.post("/Endereco",Endereco.POST)
 
 /* FUNCIONARIOS
     GET                                 -- OBTER
@@ -42,10 +40,9 @@ Server.post("/Endereco/:ID_USUARIO",Endereco.POST)
     PUT [res.Body] :ID_FUNCIONARIO                      -- ATUALIZAR
 */
 Server.get("/Funcionario",Funcionario.GET)
-Server.get("/Funcionario/:ID_FUNCIONARIO",Funcionario.GET)
-Server.post("/Funcionario/:ID_FUNCIONARIO&:ID_PRODUTO",Funcionario.POST)
-Server.delete("/Funcionario/:ID_FUNCIONARIO&:ID_PRODUTO",Funcionario.DELETE)
-Server.put("/Funcionario/:ID_FUNCIONARIO",Funcionario.PUT)
+Server.post("/Funcionario",Funcionario.POST)
+Server.delete("/Funcionario",Funcionario.DELETE)
+Server.put("/Funcionario",Funcionario.PUT)
 
 /* MOVIMENTACAO
     GET :ID_USER                            -- OBTER
@@ -67,10 +64,9 @@ Server.post("/Movimentacao",Movimentacao.POST)
 // })
 
 Server.get("/Produto",Produto.GET)
-Server.get("/Produto/:ID_PRODUTO",Produto.GET)
 Server.post("/Produto",Produto.POST)
-Server.delete("/Produto/:ID_PRODUTO",Produto.DELETE)
-Server.put("/Produto/:ID_PRODUTO",Produto.PUT)
+Server.delete("/Produto",Produto.DELETE)
+Server.put("/Produto",Produto.PUT)
 
 /* USUARIO
     GET                                 -- OBTER
@@ -80,15 +76,14 @@ Server.put("/Produto/:ID_PRODUTO",Produto.PUT)
     PUT [res.Body] :ID                      -- ATUALIZAR
 */
 Server.get("/Usuario",Usuario.GET)
-Server.get("/Usuario/:ID_USUARIO",Usuario.GET)
-Server.post("/Usuario/:ID_USUARIO",Usuario.POST)
-Server.delete("/Usuario/:ID_USUARIO",Usuario.DELETE)
-Server.put("/Usuario/:ID_USUARIO",Usuario.PUT)
+Server.post("/Usuario",Usuario.POST)
+Server.delete("/Usuario",Usuario.DELETE)
+Server.put("/Usuario",Usuario.PUT)
 
 // Server.post("PATH",FUNCTION)
 Server.get("/",(req,res)=>{
   return res.json({mensage:"é nois"})
 })
 Server.listen(3542,()=>{
-  require("./Classes/Servicos/Connection")
-})
+    require("./Classes/Servicos/Connection")
+})  

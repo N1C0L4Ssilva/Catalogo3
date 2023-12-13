@@ -28,7 +28,7 @@ exports.GET = (req, res) => {
             const Valores=[]
             for(const i in ListaItens.PRODUTOS){
                 const Ql=ListaItens.PRODUTOS[i]
-                if(Ql["MARKADOR"]==IBM){
+                if(Ql["MARKADOR"]==IBM && Ql["QUANTIDADE"]>0){
                     Valores.push(Ql)
                 }
             }
@@ -39,7 +39,7 @@ exports.GET = (req, res) => {
             const Valores=[]
             for(const i in ListaItens.PRODUTOS){
                 const Ql=ListaItens.PRODUTOS[i]
-                if(Ql["NOME"].search(IBS)!=-1){
+                if(Ql["NOME"].search(IBS)!=-1 && Ql["QUANTIDADE"]>0){
                     Valores.push(Ql)
                 }
             }

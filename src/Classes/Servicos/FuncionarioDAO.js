@@ -31,7 +31,7 @@ exports.GET = (req, res) => {
 exports.POST = (req, res) => {
     const BODY=req.body
     if (BODY) {
-        Connection.Adicionar("Funcionario",{
+        Connection.AdicionarComID("Funcionario",{
             NOME:BODY.NOME,
             ACESSO:BODY.ACESSO,
             SENHA:BODY.SENHA,
