@@ -10,18 +10,43 @@ import { Router } from '@angular/router';
 })
 export class SearchBarComponent {
   @ViewChild('InputSearch') InputSearch: ElementRef;
+  private storage: Storage;
   private router:Router=new Router()
-  constructor( IptSrc: ElementRef){this.InputSearch=IptSrc}
+  constructor( IptSrc: ElementRef){
+    this.InputSearch=IptSrc;
+    this.storage=window.localStorage;
+  }
   Pesquisar(){
     const Txt:string|null=this.InputSearch.nativeElement.value
     if(Txt!=null && Txt!=""){
       this.router.navigate(['/Search',{Search:Txt}]);
     }
   }
+  EstaLogado(){
+    if(this.storage.getItem("skmyrshPHaqT")==""||this.storage.getItem("skmyrshPHaqT")==null){
+      this.router.navigate(["/Login_Register"])
+    }
+    return true
+  }
+  IrConta(){
+    if (this.EstaLogado()){
+
+    }
+  }
   IrCart(){
-    this.router.navigate(['/Carrinho']);
+    if (this.EstaLogado()){
+      this.router.navigate(['/Carrinho']);
+    }
   }
   IrInicio(){
-    this.router.navigate(['/']);
+    if (this.EstaLogado()){
+      this.router.navigate(['/']);
+    }
+  }
+  SairConta(){
+    if (this.EstaLogado()){
+      this.storage.removeItem("skmyrshPHaqT")
+      this.router.navigate(["/Login_Register"])
+    }
   }
 }

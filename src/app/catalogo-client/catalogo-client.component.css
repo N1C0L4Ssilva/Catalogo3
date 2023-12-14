@@ -8,13 +8,6 @@
     --aOpenMenu:rgb(0,0,0);
     --CorDeFundo:#ffffff;
 }
-body{
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--CorDeFundo);
-    overflow-x: hidden;
-}
-.main{width: 100vw;}
 
 h3{
     margin-top: 10px;

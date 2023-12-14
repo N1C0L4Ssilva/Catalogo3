@@ -19,7 +19,7 @@ export class CardCatalogoComponent {
   private Service:ConectDBService=new ConectDBService()
   private storage: Storage;
 
-  constructor(private router:Router){
+  constructor(){
     this.storage=window.localStorage;
   }
   AdicionarCarrinho(ID:string){
@@ -32,5 +32,18 @@ export class CardCatalogoComponent {
           ID_PRODUTO:ID
         }).toString()}`)
     }
+  }
+  ArrumaValor(Val:string){
+    if(!Val.includes(",")){
+      Val+=",00"
+    }else{
+      const Splt=Val.split(",")
+      if(Splt[2].length==1){
+        Val+="0"
+      }else{
+        console.log("JÁ TEM ','")
+      }
+    }
+    return Val
   }
 }

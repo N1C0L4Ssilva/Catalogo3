@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CATALOGO ITENS</title>
-</head>
-<body>
-    <app-search-bar></app-search-bar>
-    <h3 class="TituloMarker">{{valorRecebido}}</h3>
-    <section *ngFor="let Mrk of ITENS" class="Result">
-        <h3 class="TituloMarker">{{Mrk.ID}}</h3>
-        <div class="Catalogo">
-            <app-card-catalogo *ngFor="let I of Mrk.ITENS"
-                Nom={{I.NOME}}
-                Dec={{I.DESCRCAO}}
-                Val={{I.VALOR}}
-                Tag={{I.TAGS}}
-                ID={{I.ID}}
-            ></app-card-catalogo>
-        </div>
-    </section>
-    <app-footer-bar></app-footer-bar>
-</body>
-</html>
+<app-search-bar></app-search-bar>
+<h3 class="TituloMarker">{{valorRecebido}}</h3>
+<section *ngFor="let Mrk of ITENS" class="Result">
+    <h3 class="TituloMarker">{{Mrk.ID}}</h3>
+    <div class="Catalogo">
+        <app-card-catalogo *ngFor="let I of Mrk.ITENS"
+            Nom={{I.NOME}}
+            Dec={{I.DESCRCAO}}
+            Val={{I.VALOR}}
+            Tag={{I.TAGS}}
+            ID={{I.ID}}
+        ></app-card-catalogo>
+    </div>
+</section>
+<app-footer-bar></app-footer-bar>

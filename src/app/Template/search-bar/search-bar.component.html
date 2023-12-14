@@ -3,6 +3,14 @@
         <input #InputSearch id="InputSearch" type="text">
         <img (click)="Pesquisar()" src="../../assets/Lupa.png" alt="">
     </div>
-    <a (click)="IrCart()" href="/Carrinho" class="Carrinho"><img src="../../assets/Carrinho.png" alt=""></a>
+    <div class="Carrinho">
+        <input type="checkbox" name="" id="">
+        <div></div>
+    </div>
     <a (click)="IrInicio()" class="Home"><img src="../../assets/Home.png" alt=""></a>
+    <div class="BotoesConta">
+        <button disabled="true" (click)="IrConta()">CONTA</button>
+        <button (click)="IrCart()" >CARRINHO</button>
+        <button (click)="SairConta()">SAIR</button>
+    </div>
 </nav>
