@@ -27,6 +27,32 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+
+## GITHUB
+…or create a new repository on the command line
+
+echo "# Catalogo_Postado_Incompleto" >> README.md
+
+git init
+
+git add README.md
+
+git commit -m "first commit"
+
+git branch -M main
+
+git remote add origin https://github.com/N1C0L4Ssilva/Catalogo_Postado_Incompleto.git
+
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/N1C0L4Ssilva/Catalogo_Postado_Incompleto.git
+
+git branch -M main
+
+git push -u origin main
+
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
