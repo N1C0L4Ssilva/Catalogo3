@@ -10,10 +10,11 @@ const Usuario=require("./Classes/Servicos/UsuarioDAO")
 const Express=require('express')
 const Server=Express()
 
-Server.use((req, res) => {
+Server.use((req, res,next) => {
     res.header('Access-Control-Allow-Origin', '*'); // ou você pode definir apenas um domínio específico
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next()
 });
 
 /* CARRINHO
