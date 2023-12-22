@@ -23,7 +23,6 @@ export class CATALOGOMARCADORESCLIENTEComponent {
   constructor(InputSearch:ElementRef){this.InputSearch=InputSearch}
 
   async ngOnInit(){
-    console.log("GET ALL MARKERS")
     this.Service.GET(`Produto/?${
       new URLSearchParams({
         TYPEFIND:"MARKER"

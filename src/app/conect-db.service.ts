@@ -1,4 +1,4 @@
-const baseURL="http://localhost:3542/"
+const baseURL="https://catalogofazendo.netlify.app/"
 import { Injectable } from '@angular/core';
 
 @Injectable({
