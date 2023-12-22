@@ -4,7 +4,6 @@ exports.Carrinho=class{
     QUANTIDADE=0
     TOTAL=0
     constructor(Obj){
-        console.log(Obj)
         this.ID_USER=Obj.ID_USER
         this.ID_PRODUTO=Obj.ID_PRODUTO
         this.QUANTIDADE=Obj.QUANTIDADE

@@ -84,6 +84,37 @@ Server.put("/Usuario",Usuario.PUT)
 Server.get("/",(req,res)=>{
   return res.json({mensage:"é nois"})
 })
-Server.listen(3542,()=>{
+let ServidorAbert=Server.listen(3542,()=>{
     require("./Classes/Servicos/Connection")
-})  
+})
+function IniciarServer(){
+    console.log("Iniciando")
+    ServidorAbert=Server.listen(3542,()=>{
+        require("./Classes/Servicos/Connection")
+    })  
+}
+// KEEP SERVER ON
+let Aviso=0
+let Reqs=0
+let ReqsSave=0
+Server.on('request',()=>{
+    console.log("Request")
+    Reqs+=1;
+    Aviso=0
+});
+
+setInterval(()=>{
+    if(Reqs==ReqsSave){
+        console.log("Aviso")
+        if(Aviso<3){
+            Aviso+=1
+        }else{
+            ServidorAbert.close(()=>{
+                Aviso=0
+                Reqs=0
+                ReqsSave=0
+                IniciarServer()
+            })
+        }
+    }
+},1000*10);// 10 sec

@@ -15,7 +15,6 @@ exports.GET = (req, res) => {
     const BODY=req.body
     console.log(QUERY,BODY,"EU AQ")
     if(QUERY != undefined){
-        console.log("kjasndkjasndj")
         for(const i in ListaItens.USIARIO){
             const Res=ListaItens.USIARIO[i]
             if(Res.ACESSO==QUERY.ACESSO){
@@ -88,7 +87,6 @@ exports.PUT = (req, res) => {
                 SENHA:BODY.SENHA,
             })
         }else{
-            console.log("TEM")
             return res.json("EMAIL EXISTENTE")
         }
     }
