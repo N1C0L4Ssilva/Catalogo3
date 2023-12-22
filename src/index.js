@@ -113,7 +113,7 @@ setInterval(()=>{
                 Aviso=0
                 Reqs=0
                 ReqsSave=0
-                IniciarServer()
+                // IniciarServer()
             })
         }
     }
